@@ -126,7 +126,7 @@
             v-for="(it, i) in timelineItems"
             :key="it.date + i"
             class="tl-item"
-            :class="{ open: expandedIdx === i }"
+            :class="{ open: expandedIdx === i, 'tl-item--latest': i === 0 }"
           >
             <button
               type="button"
@@ -329,11 +329,21 @@ onMounted(async () => {
 .announcement-social--qq:hover { background: #2a5ce0; box-shadow: 0 0 12px rgba(54, 110, 244, 0.45); }
 .announcement-social--tg { background: #1da1f2; border: 1px solid #1a91da; }
 .announcement-social--tg:hover { background: #1a91da; box-shadow: 0 0 12px rgba(29, 161, 242, 0.45); }
-.announcement-social--apk { background: #3ddc84; border: 1px solid #34c17a; color: #073042; animation: announcement-apk-glow 2.4s ease-in-out infinite; }
+/* 安卓 APP 按钮：镜面反光（原呼吸发光已取消） */
+.announcement-social--apk { position: relative; overflow: hidden; background: #3ddc84; border: 1px solid #34c17a; color: #073042; }
+.announcement-social--apk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.55) 50%, transparent 62%);
+  transform: translateX(-120%);
+  animation: announcement-apk-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
 .announcement-social--apk:hover { background: #34c17a; box-shadow: 0 0 12px rgba(61, 220, 132, 0.45); }
-@keyframes announcement-apk-glow {
-  0%, 100% { box-shadow: 0 0 4px rgba(61, 220, 132, 0.25); }
-  50% { box-shadow: 0 0 16px rgba(61, 220, 132, 0.65), 0 0 4px rgba(61, 220, 132, 0.4); }
+@keyframes announcement-apk-shine {
+  0% { transform: translateX(-120%); }
+  60%, 100% { transform: translateX(120%); }
 }
 .announcement-social--qq .announcement-social__icon { display: block; height: 15px; width: auto; }
 .announcement-modal__close {
@@ -372,6 +382,24 @@ onMounted(async () => {
 }
 .tl-item:last-child { margin-bottom: 0; }
 .tl-item.open { border-color: var(--accent-gold); }
+/* 最新公告：镜面反光扫过，更醒目 */
+.tl-item--latest { border-color: color-mix(in srgb, var(--accent-gold) 45%, var(--glass-border)); }
+.tl-item--latest::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.18) 50%, transparent 62%);
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0;
+  animation: tl-latest-shine 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes tl-latest-shine {
+  0% { background-position: 0% 0; }
+  45%, 100% { background-position: 100% 0; }
+}
 .tl-item::before {
   content: '';
   position: absolute;
@@ -442,7 +470,8 @@ onMounted(async () => {
 @keyframes announcement-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes announcement-rise { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (prefers-reduced-motion: reduce) {
-  .announcement-social--apk { animation: none; }
+  .announcement-social--apk::after,
+  .tl-item--latest::after { animation: none; }
 }
 
 /* Hero */

@@ -104,15 +104,25 @@ const parts = computed(() => brandParts(site.value))
 .nav-cta--qq .cta-icon { display: block; height: 16px; width: auto; }
 .nav-cta--qq:hover { background: #2a5ce0; box-shadow: 0 0 12px rgba(54, 110, 244, 0.45); }
 
-.nav-cta--apk { background: #3ddc84; border-color: #34c17a; color: #073042; animation: apk-glow 2.4s ease-in-out infinite; }
+/* 安卓 APP 按钮：镜面反光（原呼吸发光已取消） */
+.nav-cta--apk { position: relative; overflow: hidden; background: #3ddc84; border-color: #34c17a; color: #073042; }
+.nav-cta--apk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.55) 50%, transparent 62%);
+  transform: translateX(-120%);
+  animation: apk-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
 .nav-cta--apk:hover { background: #34c17a; box-shadow: 0 0 12px rgba(61, 220, 132, 0.45); }
-@keyframes apk-glow {
-  0%, 100% { box-shadow: 0 0 4px rgba(61, 220, 132, 0.25); }
-  50% { box-shadow: 0 0 16px rgba(61, 220, 132, 0.65), 0 0 4px rgba(61, 220, 132, 0.4); }
+@keyframes apk-shine {
+  0% { transform: translateX(-120%); }
+  60%, 100% { transform: translateX(120%); }
 }
 /* 尊重系统的“减少动态”偏好 */
 @media (prefers-reduced-motion: reduce) {
-  .nav-cta--apk { animation: none; }
+  .nav-cta--apk::after { animation: none; }
 }
 .theme-toggle {
   width: 38px;

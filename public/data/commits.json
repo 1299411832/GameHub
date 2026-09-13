@@ -1,5 +1,41 @@
 [
   {
+    "hash": "7499ec8",
+    "date": "2026-09-13T01:44:22+08:00",
+    "message": "sync: 新增资源《巫女贴纸日记免广告版》",
+    "url": "https://github.com/xi7ang/GameHub/commit/7499ec87c3a69b4abc11cd1283a47ebc5c451345"
+  },
+  {
+    "hash": "b9fc27d",
+    "date": "2026-09-13T01:28:23+08:00",
+    "message": "sync: 新增资源《转生史莱姆异世界冒险RPG》",
+    "url": "https://github.com/xi7ang/GameHub/commit/b9fc27d5740b39a71f9fab0f09473b95442adc11"
+  },
+  {
+    "hash": "c7cf9f1",
+    "date": "2026-09-13T01:14:49+08:00",
+    "message": "sync: 新增资源《奥日2：精灵与萤火意志中文版》",
+    "url": "https://github.com/xi7ang/GameHub/commit/c7cf9f101992275a9c73ceafab4af3fe03a5ba38"
+  },
+  {
+    "hash": "616a3d9",
+    "date": "2026-09-13T00:52:49+08:00",
+    "message": "sync: 新增资源《终结之日 v1.4.15内置菜单》",
+    "url": "https://github.com/xi7ang/GameHub/commit/616a3d9124fd486f6c5e6df5ba76c75de1595444"
+  },
+  {
+    "hash": "9894868",
+    "date": "2026-09-13T00:51:45+08:00",
+    "message": "sync: 新增资源《终落之城：海上末日生存建造》",
+    "url": "https://github.com/xi7ang/GameHub/commit/9894868998454456292ecbe8e60fb28c235c1ed7"
+  },
+  {
+    "hash": "5ab9436",
+    "date": "2026-09-12T23:59:19+08:00",
+    "message": "announce: 网站公告「游戏源神 安卓 APP 正式发布」",
+    "url": "https://github.com/xi7ang/GameHub/commit/5ab94368a79ec2b55a1ea3718373b1a083ab3cb2"
+  },
+  {
     "hash": "7ca14c2",
     "date": "2026-09-12T23:31:01+08:00",
     "message": "style(btn): QQ群按钮去掉晃动与发光；安卓APP按钮改为呼吸发光",
@@ -142,41 +178,5 @@
     "date": "2026-09-10T11:59:34+08:00",
     "message": "sync: 新增资源《忍者神龟 斯普林特的命运 V2.0.3+4DLC》",
     "url": "https://github.com/xi7ang/GameHub/commit/77db5a01d00ab92fd4f30c727edabc3aa0462208"
-  },
-  {
-    "hash": "fcb6e9c",
-    "date": "2026-09-10T11:45:41+08:00",
-    "message": "sync: 新增资源《妖精的尾巴：地下迷城 v1.2.12 中文版》",
-    "url": "https://github.com/xi7ang/GameHub/commit/fcb6e9cdd36417d8cbaf386d87c8f905c0142a1d"
-  },
-  {
-    "hash": "d988596",
-    "date": "2026-09-10T11:13:48+08:00",
-    "message": "sync: 新增资源《孤岛惊魂5 v1.016 解压即玩》",
-    "url": "https://github.com/xi7ang/GameHub/commit/d988596cb4b83891cbe2af7068103c950d11b344"
-  },
-  {
-    "hash": "40362cc",
-    "date": "2026-09-10T10:44:44+08:00",
-    "message": "fix: A) BgWall 读取 bgwall.json 的 rows(死字段修复) B) 删除 site.json 僵尸字段 hotKeywords",
-    "url": "https://github.com/xi7ang/GameHub/commit/40362cc2737ef8b657333dd78c2e161abfab8dcf"
-  },
-  {
-    "hash": "cf42570",
-    "date": "2026-09-10T10:34:39+08:00",
-    "message": "sync: 新增资源《豪猪镇之秋v1.3.3中文版》",
-    "url": "https://github.com/xi7ang/GameHub/commit/cf42570b32107e6569884ad8f7856cc95ee19e29"
-  },
-  {
-    "hash": "6b08926",
-    "date": "2026-09-10T10:04:49+08:00",
-    "message": "fix: Admin 热词编辑补标 dirty（独立 ref 不在 siteForm watch 内，否则存不下来）",
-    "url": "https://github.com/xi7ang/GameHub/commit/6b089263c597c3b57fe8a2af60a688fc4b884228"
-  },
-  {
-    "hash": "b88232d",
-    "date": "2026-09-10T10:03:05+08:00",
-    "message": "fix: 背景墙滚动时长统一为 --row-speed 单一来源 + 隐藏板块补说明",
-    "url": "https://github.com/xi7ang/GameHub/commit/b88232de0efb190ec31a4b20655ee76cd20449c2"
   }
 ]
