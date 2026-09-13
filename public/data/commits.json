@@ -1,5 +1,11 @@
 [
   {
+    "hash": "3a93be8",
+    "date": "2026-09-13T14:06:48+08:00",
+    "message": "fix(announcement): 最新公告反光改为整条位移不跳帧，并按主题配色（浅色模式可见）",
+    "url": "https://github.com/xi7ang/GameHub/commit/3a93be8bfc0312ca8d01c50b7acef025041282be"
+  },
+  {
     "hash": "e05cb45",
     "date": "2026-09-13T14:03:01+08:00",
     "message": "style: 公告最新条目与安卓APP按钮改为镜面反光（取消呼吸发光）",
@@ -172,11 +178,5 @@
     "date": "2026-09-11T11:29:06+08:00",
     "message": "sync: 新增资源《纸嫁衣2：奘铃村 v1.0.4（Paper Bride 2 Zangling V》",
     "url": "https://github.com/xi7ang/GameHub/commit/6f319dc9542d6ece51cb93a95661c09cceec0927"
-  },
-  {
-    "hash": "7de1d18",
-    "date": "2026-09-10T23:50:24+08:00",
-    "message": "chore: 每日公告：发布【2026-09-10】游戏资源更新通知（4 条新资源）",
-    "url": "https://github.com/xi7ang/GameHub/commit/7de1d188fe66f97b6b1f35b03847223722dca21f"
   }
 ]

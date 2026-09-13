@@ -128,6 +128,7 @@
             class="tl-item"
             :class="{ open: expandedIdx === i, 'tl-item--latest': i === 0 }"
           >
+            <span v-if="i === 0" class="tl-shine" aria-hidden="true"></span>
             <button
               type="button"
               class="tl-head"
@@ -384,21 +385,30 @@ onMounted(async () => {
 .tl-item.open { border-color: var(--accent-gold); }
 /* 最新公告：镜面反光扫过，更醒目 */
 .tl-item--latest { border-color: color-mix(in srgb, var(--accent-gold) 45%, var(--glass-border)); }
-/* 整条反光带位移（不用 background-position），两端都完全移出卡片，循环不跳帧；
-   clip-path 负责裁圆角，避免给 .tl-item 加 overflow:hidden 而切断左侧连接线 */
-.tl-item--latest::after {
-  content: '';
+/* 裁剪层与位移层必须分开：clip-path 在元素自身坐标系里生效，会跟着 transform 一起跑，
+   反光会扫出卡片外；所以裁圆角放在外层 .tl-shine，位移放在它的 ::after。
+   （不能给 .tl-item 加 overflow:hidden：那会切断左侧时间线连接线 ::before） */
+.tl-shine {
   position: absolute;
   inset: 0;
-  clip-path: inset(0 round 12px);
-  background: linear-gradient(105deg, transparent 0%, var(--shine-tail) 42%, var(--shine-core) 50%, var(--shine-tail) 58%, transparent 100%);
-  transform: translateX(-100%);
-  animation: tl-latest-shine 3.4s ease-in-out infinite;
+  border-radius: inherit;
+  overflow: hidden;
   pointer-events: none;
 }
+.tl-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 0%, var(--shine-tail) 38%, var(--shine-core) 50%, var(--shine-tail) 62%, transparent 100%);
+  transform: translateX(-150%) skewX(-16deg);
+  animation: tl-latest-shine 3.4s ease-in-out infinite;
+}
 @keyframes tl-latest-shine {
-  0% { transform: translateX(-100%); }
-  60%, 100% { transform: translateX(100%); }
+  0% { transform: translateX(-150%) skewX(-16deg); }
+  60%, 100% { transform: translateX(270%) skewX(-16deg); }
 }
 .tl-item::before {
   content: '';
@@ -471,7 +481,7 @@ onMounted(async () => {
 @keyframes announcement-rise { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (prefers-reduced-motion: reduce) {
   .announcement-social--apk::after,
-  .tl-item--latest::after { animation: none; }
+  .tl-shine::after { animation: none; }
 }
 
 /* Hero */
