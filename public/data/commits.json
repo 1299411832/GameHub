@@ -1,5 +1,11 @@
 [
   {
+    "hash": "e05cb45",
+    "date": "2026-09-13T14:03:01+08:00",
+    "message": "style: 公告最新条目与安卓APP按钮改为镜面反光（取消呼吸发光）",
+    "url": "https://github.com/xi7ang/GameHub/commit/e05cb45998999351e9db8836ee9571216071e738"
+  },
+  {
     "hash": "7499ec8",
     "date": "2026-09-13T01:44:22+08:00",
     "message": "sync: 新增资源《巫女贴纸日记免广告版》",
@@ -172,11 +178,5 @@
     "date": "2026-09-10T23:50:24+08:00",
     "message": "chore: 每日公告：发布【2026-09-10】游戏资源更新通知（4 条新资源）",
     "url": "https://github.com/xi7ang/GameHub/commit/7de1d188fe66f97b6b1f35b03847223722dca21f"
-  },
-  {
-    "hash": "77db5a0",
-    "date": "2026-09-10T11:59:34+08:00",
-    "message": "sync: 新增资源《忍者神龟 斯普林特的命运 V2.0.3+4DLC》",
-    "url": "https://github.com/xi7ang/GameHub/commit/77db5a01d00ab92fd4f30c727edabc3aa0462208"
   }
 ]

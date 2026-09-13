@@ -384,21 +384,21 @@ onMounted(async () => {
 .tl-item.open { border-color: var(--accent-gold); }
 /* 最新公告：镜面反光扫过，更醒目 */
 .tl-item--latest { border-color: color-mix(in srgb, var(--accent-gold) 45%, var(--glass-border)); }
+/* 整条反光带位移（不用 background-position），两端都完全移出卡片，循环不跳帧；
+   clip-path 负责裁圆角，避免给 .tl-item 加 overflow:hidden 而切断左侧连接线 */
 .tl-item--latest::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.18) 50%, transparent 62%);
-  background-size: 220% 100%;
-  background-repeat: no-repeat;
-  background-position: 0% 0;
-  animation: tl-latest-shine 3.6s ease-in-out infinite;
+  clip-path: inset(0 round 12px);
+  background: linear-gradient(105deg, transparent 0%, var(--shine-tail) 42%, var(--shine-core) 50%, var(--shine-tail) 58%, transparent 100%);
+  transform: translateX(-100%);
+  animation: tl-latest-shine 3.4s ease-in-out infinite;
   pointer-events: none;
 }
 @keyframes tl-latest-shine {
-  0% { background-position: 0% 0; }
-  45%, 100% { background-position: 100% 0; }
+  0% { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
 }
 .tl-item::before {
   content: '';
