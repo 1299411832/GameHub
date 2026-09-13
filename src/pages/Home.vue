@@ -410,6 +410,8 @@ onMounted(async () => {
   0% { transform: translateX(-150%) skewX(-16deg); }
   60%, 100% { transform: translateX(270%) skewX(-16deg); }
 }
+/* 展开后收起反光：高光扫过正文会干扰阅读，只在收起状态当提示用 */
+.tl-item--latest.open .tl-shine { display: none; }
 .tl-item::before {
   content: '';
   position: absolute;
