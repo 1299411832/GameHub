@@ -1,5 +1,11 @@
 [
   {
+    "hash": "8a7ab01",
+    "date": "2026-09-14T09:20:16+08:00",
+    "message": "fix(search): 首页搜索下拉无结果 — resources 为空时按需加载全量数据",
+    "url": "https://github.com/xi7ang/GameHub/commit/8a7ab01a5a9bceb4865b24fed7688b102e6f3abd"
+  },
+  {
     "hash": "5f1212b",
     "date": "2026-09-13T22:02:54+08:00",
     "message": "sync: 新增资源《月光光心慌慌恐怖万圣夜v1.0.1.69707附联机补丁 Halloween: 》",
@@ -172,11 +178,5 @@
     "date": "2026-09-12T13:02:03+08:00",
     "message": "sync: 新增资源《勒芒终极赛豪华中文版全DLC》",
     "url": "https://github.com/xi7ang/GameHub/commit/aa345ee9b2f4187de58865ff5b489a4611936127"
-  },
-  {
-    "hash": "3adcbbf",
-    "date": "2026-09-12T13:01:41+08:00",
-    "message": "sync: 新增资源《幻想大陆战记：卢纳基亚传说v1.02》",
-    "url": "https://github.com/xi7ang/GameHub/commit/3adcbbf6db01fdd071a1ee6f5f3ae93ff0b1eb93"
   }
 ]

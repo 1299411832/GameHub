@@ -42,7 +42,6 @@
             <span class="search-dropdown__dot" :style="{ background: catColor(r.category) }"></span>
             <span class="search-dropdown__title" v-html="highlight(r.title)"></span>
             <span class="badge">{{ catLabel(r.category) }}</span>
-            <span class="badge">{{ platformLabel(r.platform) }}</span>
           </a>
           <a :href="`/search.html?q=${encodeURIComponent(query)}`" class="search-dropdown__more" @mousedown.prevent>
             查看全部结果 →
@@ -113,9 +112,6 @@ const results = computed(() => {
 function catColor(key) {
   const g = catMeta(key).gradient || ['#888', '#666']
   return g[0]
-}
-function platformLabel(p) {
-  return state.site?.platforms?.[p]?.label || p
 }
 function highlight(text) {
   const q = query.value.trim()
