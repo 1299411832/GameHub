@@ -1,5 +1,41 @@
 [
   {
+    "hash": "9615c1d",
+    "date": "2026-09-14T11:41:49+08:00",
+    "message": "sync: 新增资源《穿书志：倪帝蔷决定去死 ****/Novel**** Forger: Suici》",
+    "url": "https://github.com/xi7ang/GameHub/commit/9615c1d275987f5c833720e6694048db2de82a32"
+  },
+  {
+    "hash": "26b7ac3",
+    "date": "2026-09-14T11:41:32+08:00",
+    "message": "sync: 新增资源《纸嫁衣5：来生戏/Paper Bride 5 Two Lifetimes v1.》",
+    "url": "https://github.com/xi7ang/GameHub/commit/26b7ac32767d2bd13a9b45ee75ffc16dae5c9968"
+  },
+  {
+    "hash": "86f0851",
+    "date": "2026-09-14T11:40:29+08:00",
+    "message": "sync: 新增资源《纸嫁衣1/Paper Bride 1》",
+    "url": "https://github.com/xi7ang/GameHub/commit/86f08518240f4679f9b5cee63059f37671bc19ee"
+  },
+  {
+    "hash": "a5f8590",
+    "date": "2026-09-14T11:38:21+08:00",
+    "message": "feat(app): 安卓 App WebView 内隐藏「安卓APP」下载入口（公告弹窗 + 顶部导航）",
+    "url": "https://github.com/xi7ang/GameHub/commit/a5f8590a6a7996548529563f4fe7767cf606f56d"
+  },
+  {
+    "hash": "5dc6e65",
+    "date": "2026-09-14T11:38:09+08:00",
+    "message": "sync: 新增资源《电子仓库模拟器/Electronics Depot Simulator》",
+    "url": "https://github.com/xi7ang/GameHub/commit/5dc6e6545751cd3e4f26f1a82a489bc27f6931ae"
+  },
+  {
+    "hash": "7bf6898",
+    "date": "2026-09-14T11:37:47+08:00",
+    "message": "sync: 新增资源《半场经理/HALFTIME Manager》",
+    "url": "https://github.com/xi7ang/GameHub/commit/7bf68981de655aa32f808e56b7e24c4e452e0fa8"
+  },
+  {
     "hash": "4a00821",
     "date": "2026-09-14T09:48:24+08:00",
     "message": "feat(cache): 构建号 + version.json 轮询，部署后免强刷自动切新版本；数据文件统一按构建号 bust",
@@ -142,41 +178,5 @@
     "date": "2026-09-12T22:57:17+08:00",
     "message": "feat(app): 弹窗按钮改安卓绿/移到 TG 前/文案「安卓APP」；落地页图标换成新 App 图标",
     "url": "https://github.com/xi7ang/GameHub/commit/8f27e8eb9ce8a90d440a0222e344037e53d8aafd"
-  },
-  {
-    "hash": "3c0d040",
-    "date": "2026-09-12T22:39:29+08:00",
-    "message": "style(app): 落地页与弹窗按钮统一为品牌琥珀金 #c99a5b，落地页图标换成手柄",
-    "url": "https://github.com/xi7ang/GameHub/commit/3c0d0404d856d31f73621c945b98f7955fe732c8"
-  },
-  {
-    "hash": "6fcfcaf",
-    "date": "2026-09-12T22:09:12+08:00",
-    "message": "feat(app): 落地页改双地址，主地址走本站 nginx 镜像",
-    "url": "https://github.com/xi7ang/GameHub/commit/6fcfcaf96a621a1456514ddd6b335f2389a3573f"
-  },
-  {
-    "hash": "3d89daa",
-    "date": "2026-09-12T22:02:59+08:00",
-    "message": "feat(app): 公告弹窗新增 App 下载入口 + /app.html 落地页 + 二维码",
-    "url": "https://github.com/xi7ang/GameHub/commit/3d89daa4a656acc5fdd234c92c2bc062c1e41a48"
-  },
-  {
-    "hash": "7ceae0a",
-    "date": "2026-09-12T20:31:56+08:00",
-    "message": "chore: 每日公告：发布【2026-09-12】游戏资源更新通知（5 条新资源）",
-    "url": "https://github.com/xi7ang/GameHub/commit/7ceae0af79ee10161fbd4229b586e3f11de8973f"
-  },
-  {
-    "hash": "c8ec97a",
-    "date": "2026-09-12T13:24:48+08:00",
-    "message": "fix: 给 JSON fetch 加 cache-bust 版本号后缀，解决 Edge 普通模式读取旧 JSON 导致'资源不存在'",
-    "url": "https://github.com/xi7ang/GameHub/commit/c8ec97abc6dd94dca56119c2ef34c6adc1f22e54"
-  },
-  {
-    "hash": "37b453b",
-    "date": "2026-09-12T13:03:47+08:00",
-    "message": "sync: 新增资源《彼之国中文版：时空动作盛宴》",
-    "url": "https://github.com/xi7ang/GameHub/commit/37b453b92afea8e9860572b77b21fda0426f72b9"
   }
 ]
