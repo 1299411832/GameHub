@@ -22,7 +22,7 @@
         <!-- 更新日志入口已按要求隐藏（PC 端顶部导航） -->
         <!-- <a href="/changelog.html" class="nav-link">更新日志</a> -->
         <a v-if="site?.qqGroup" :href="site.qqGroup" target="_blank" rel="noreferrer" class="nav-cta nav-cta--qq"><img class="cta-icon" src="/qq-penguin.png" alt="" width="14" height="16" /><span class="cta-text">QQ群</span></a>
-        <a v-if="site?.androidApp" :href="site.androidApp" class="nav-cta nav-cta--apk"><svg class="cta-icon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48A10.98 10.98 0 0 0 1 18h22a10.98 10.98 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg><span class="cta-text">安卓APP</span></a>
+        <a v-if="site?.androidApp && !IS_APP_WEBVIEW" :href="site.androidApp" class="nav-cta nav-cta--apk"><svg class="cta-icon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48A10.98 10.98 0 0 0 1 18h22a10.98 10.98 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg><span class="cta-text">安卓APP</span></a>
         <button class="theme-toggle" @click="toggleTheme" :title="theme === 'dark' ? '切换日间' : '切换夜间'">
           <span v-if="theme === 'dark'">☀️</span>
           <span v-else>🌙</span>
@@ -37,6 +37,7 @@ import { useData } from '../composables/useData.js'
 import { useTheme } from '../composables/useTheme.js'
 import { useBrand } from '../composables/useBrand.js'
 import { computed } from 'vue'
+import { IS_APP_WEBVIEW } from '../lib/appEnv.js'
 
 const { state } = useData()
 const { theme, toggleTheme } = useTheme()

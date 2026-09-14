@@ -112,7 +112,7 @@
             <img class="announcement-social__icon" src="/qq-penguin.png" alt="" width="13" height="15" />
             <span>QQ群</span>
           </a>
-          <a v-if="site?.androidApp" :href="site.androidApp" class="announcement-social announcement-social--apk">
+          <a v-if="site?.androidApp && !IS_APP_WEBVIEW" :href="site.androidApp" class="announcement-social announcement-social--apk">
             <svg class="announcement-social__icon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48A10.98 10.98 0 0 0 1 18h22a10.98 10.98 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
             <span>安卓APP</span>
           </a>
@@ -167,6 +167,7 @@ import ResourceCard from '../components/ResourceCard.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import { useData } from '../composables/useData.js'
 import { BUILD_ID } from '../lib/version.js'
+import { IS_APP_WEBVIEW } from '../lib/appEnv.js'
 
 const { state, loadHome } = useData()
 const site = computed(() => state.site)

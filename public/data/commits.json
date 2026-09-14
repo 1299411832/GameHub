@@ -1,5 +1,11 @@
 [
   {
+    "hash": "4a00821",
+    "date": "2026-09-14T09:48:24+08:00",
+    "message": "feat(cache): 构建号 + version.json 轮询，部署后免强刷自动切新版本；数据文件统一按构建号 bust",
+    "url": "https://github.com/xi7ang/GameHub/commit/4a008217cca799492dc309e4defcad30c69dae80"
+  },
+  {
     "hash": "0e57350",
     "date": "2026-09-14T09:40:55+08:00",
     "message": "perf(brand): 品牌名构建期注入 HTML，消除首帧「GameHub → 游戏源神」闪烁",
@@ -172,11 +178,5 @@
     "date": "2026-09-12T13:03:47+08:00",
     "message": "sync: 新增资源《彼之国中文版：时空动作盛宴》",
     "url": "https://github.com/xi7ang/GameHub/commit/37b453b92afea8e9860572b77b21fda0426f72b9"
-  },
-  {
-    "hash": "c6006f4",
-    "date": "2026-09-12T13:03:37+08:00",
-    "message": "sync: 新增资源《万物皆可蟹：动物进化v1.0.1解压即玩》",
-    "url": "https://github.com/xi7ang/GameHub/commit/c6006f4e645b98a9089d4b6c525d5d763e3010eb"
   }
 ]
