@@ -6,24 +6,37 @@ import { useData } from './useData.js'
 
 const LS_KEY = 'gamehub-brand'
 
+// 构建期注入的品牌（scripts/inject-brand.js 写入 window.__BRAND__）：数据未就绪时首帧即正确，
+// 不必等 site.json 返回后再改名 —— 消除「先 GameHub 后换名」的闪烁。
+function injected() {
+  try {
+    if (typeof window === 'undefined' || !window.__BRAND__) return null
+    return { name: window.__BRAND__, accent: window.__BRAND_ACCENT__ ?? '' }
+  } catch (e) {
+    return null
+  }
+}
+
 export function useBrand() {
   const { state } = useData()
 
-  // 完整品牌名：site 配置优先；数据未就绪时用 localStorage 记忆（后台保存过换名则首帧即新名）；
-  // 都没有则默认 GameHub
+  // 完整品牌名：site 配置优先；数据未就绪时用构建期注入值，再退 localStorage 记忆，最后默认 GameHub
   function brandName(site) {
     const s = site || state.site
     const b = s?.brand
     if (b?.name) return b.name
     if (s?.siteName) return String(s.siteName).split(/\s+/)[0]
+    const inj = injected()
+    if (inj) return inj.name
     try { return localStorage.getItem(LS_KEY) || 'GameHub' } catch (e) { return 'GameHub' }
   }
 
-  // 高亮后缀（无则空串 = 不拆分）。localStorage 只记了整名，拆分信息仅在 site 就绪后可用。
+  // 高亮后缀（无则空串 = 不拆分）。localStorage 只记了整名，拆分信息靠构建期注入值补上。
   function brandAccent(site) {
     const s = site || state.site
     const b = s?.brand
-    return (b && b.accent != null) ? b.accent : ''
+    if (b && b.accent != null) return b.accent
+    return injected()?.accent ?? ''
   }
 
   // 头部/底部展示用：主词 + 高亮段（main/accent 各可能为空，模板自行 v-if）

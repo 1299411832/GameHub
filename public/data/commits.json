@@ -1,5 +1,11 @@
 [
   {
+    "hash": "ed702f5",
+    "date": "2026-09-14T09:28:31+08:00",
+    "message": "style(search): 下拉结果条目去掉网盘平台标签，仅保留分类",
+    "url": "https://github.com/xi7ang/GameHub/commit/ed702f504f065e482e1f17ee344934228b72e6d0"
+  },
+  {
     "hash": "8a7ab01",
     "date": "2026-09-14T09:20:16+08:00",
     "message": "fix(search): 首页搜索下拉无结果 — resources 为空时按需加载全量数据",
@@ -172,11 +178,5 @@
     "date": "2026-09-12T13:02:06+08:00",
     "message": "sync: 新增资源《食魂徒：蓝色圣殇中文版》",
     "url": "https://github.com/xi7ang/GameHub/commit/fc1abe5df2f4a86570059b00e76c2aae47f5f9b0"
-  },
-  {
-    "hash": "aa345ee",
-    "date": "2026-09-12T13:02:03+08:00",
-    "message": "sync: 新增资源《勒芒终极赛豪华中文版全DLC》",
-    "url": "https://github.com/xi7ang/GameHub/commit/aa345ee9b2f4187de58865ff5b489a4611936127"
   }
 ]
