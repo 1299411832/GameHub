@@ -22914,5 +22914,25 @@
     "addedAt": "2026-09-15T07:17:55+08:00",
     "updatedAt": "2026-09-15T07:17:55+08:00",
     "month": "202609"
+  },
+  {
+    "id": "pc-202609-0060",
+    "title": "动漫商店模拟器/Anime Shop Simulator",
+    "enTitle": "",
+    "category": "pc",
+    "tags": [],
+    "platform": "quark",
+    "url": "https://pan.quark.cn/s/71ecf8bcd4f1?pwd=5hIq",
+    "pwd": "5hIq",
+    "size": "",
+    "sizeBytes": null,
+    "cover": "",
+    "steamAppID": null,
+    "desc": "打造专属动漫天堂，收集稀有周边，布置梦幻店铺。与顾客热情互动，解锁隐藏剧情，体验经营动漫王国的乐趣。每一件藏品都承载回忆，每一次交易都充满惊喜。",
+    "status": "active",
+    "featured": false,
+    "addedAt": "2026-09-15T07:25:26+08:00",
+    "updatedAt": "2026-09-15T07:25:26+08:00",
+    "month": "202609"
   }
 ]
