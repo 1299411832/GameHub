@@ -22754,5 +22754,25 @@
     "addedAt": "2026-09-14T11:37:46+08:00",
     "updatedAt": "2026-09-14T11:37:46+08:00",
     "month": "202609"
+  },
+  {
+    "id": "pc-202609-0052",
+    "title": "电子仓库模拟器/Electronics Depot Simulator",
+    "enTitle": "",
+    "category": "pc",
+    "tags": [],
+    "platform": "quark",
+    "url": "https://pan.quark.cn/s/6d58b52e5d8e?pwd=YalF",
+    "pwd": "YalF",
+    "size": "",
+    "sizeBytes": null,
+    "cover": "",
+    "steamAppID": null,
+    "desc": "体验电子仓库管理的真实乐趣，从入库分拣到订单打包，每一步都考验你的策略与效率。优化库存周转，提升物流速度，在繁忙中感受电子产品的独特魅力。",
+    "status": "active",
+    "featured": false,
+    "addedAt": "2026-09-14T11:38:08+08:00",
+    "updatedAt": "2026-09-14T11:38:08+08:00",
+    "month": "202609"
   }
 ]
