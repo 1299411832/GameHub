@@ -1,5 +1,35 @@
 [
   {
+    "hash": "5f1212b",
+    "date": "2026-09-13T22:02:54+08:00",
+    "message": "sync: 新增资源《月光光心慌慌恐怖万圣夜v1.0.1.69707附联机补丁 Halloween: 》",
+    "url": "https://github.com/xi7ang/GameHub/commit/5f1212bc59ff75c53e98528bb70914523af39efd"
+  },
+  {
+    "hash": "5f9a969",
+    "date": "2026-09-13T21:20:34+08:00",
+    "message": "feat(app): 下载按钮改指阿里云 ECS 的 APK，二维码改指 https://mibear.top/app.html",
+    "url": "https://github.com/xi7ang/GameHub/commit/5f9a9690412aa1d9e12ae8c2187dab27e700afaf"
+  },
+  {
+    "hash": "47edda0",
+    "date": "2026-09-13T21:06:53+08:00",
+    "message": "ci: 新增 Aliyun ECS 部署工作流（rsync-deployments → https://mibear.top）",
+    "url": "https://github.com/xi7ang/GameHub/commit/47edda07f64c21ad6f89f74d49ef380072d8c3ba"
+  },
+  {
+    "hash": "374ff9f",
+    "date": "2026-09-13T20:31:33+08:00",
+    "message": "chore: 每日公告：发布【2026-09-13】游戏资源更新通知（5条新资源）",
+    "url": "https://github.com/xi7ang/GameHub/commit/374ff9f86d8d8ea41602f222d7608db6fb061f29"
+  },
+  {
+    "hash": "860f4ca",
+    "date": "2026-09-13T14:16:16+08:00",
+    "message": "fix(announcement): 最新公告展开后隐藏镜面反光，仅收起状态显示",
+    "url": "https://github.com/xi7ang/GameHub/commit/860f4ca5a70c93bd4c4df8ee7b8cb769eadc2b0c"
+  },
+  {
     "hash": "83fa2f6",
     "date": "2026-09-13T14:11:57+08:00",
     "message": "fix(announcement): 反光裁剪层与位移层分离，取消扫出卡片外的溢出",
@@ -148,35 +178,5 @@
     "date": "2026-09-12T13:01:41+08:00",
     "message": "sync: 新增资源《幻想大陆战记：卢纳基亚传说v1.02》",
     "url": "https://github.com/xi7ang/GameHub/commit/3adcbbf6db01fdd071a1ee6f5f3ae93ff0b1eb93"
-  },
-  {
-    "hash": "6682ecd",
-    "date": "2026-09-11T20:31:52+08:00",
-    "message": "chore: 每日公告：发布【2026-09-11】游戏资源更新通知（5条新资源）",
-    "url": "https://github.com/xi7ang/GameHub/commit/6682ecdd03021c8988d867207efe6a0c5a8b2c91"
-  },
-  {
-    "hash": "625c491",
-    "date": "2026-09-11T11:37:54+08:00",
-    "message": "sync: 新增资源《监狱建造师直装即玩》",
-    "url": "https://github.com/xi7ang/GameHub/commit/625c491461de0683b9822b3cab10fa574ae9126d"
-  },
-  {
-    "hash": "0fedfb0",
-    "date": "2026-09-11T11:35:29+08:00",
-    "message": "sync: 新增资源《古玩人生v1.999.45_kill_sign_sign.apk|》",
-    "url": "https://github.com/xi7ang/GameHub/commit/0fedfb03ed47eb974982f391c4e0fc9bf20fa222"
-  },
-  {
-    "hash": "06900b0",
-    "date": "2026-09-11T11:33:34+08:00",
-    "message": "sync: 新增资源《大跳跃：同乐Build.25046464Big Hops Together》",
-    "url": "https://github.com/xi7ang/GameHub/commit/06900b08672060a01da72b04aac4755870b6fe55"
-  },
-  {
-    "hash": "5e03056",
-    "date": "2026-09-11T11:31:12+08:00",
-    "message": "sync: 新增资源《水浒英雄传：八幕战役 v1.8》",
-    "url": "https://github.com/xi7ang/GameHub/commit/5e030563df940b8df0c925b91e76ecb4f66f0060"
   }
 ]

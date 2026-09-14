@@ -26,7 +26,8 @@
     <!-- 即时下拉结果（Teleport 到 body 根级，fixed 跟随输入框，置顶避免被任何元素遮挡） -->
     <Teleport to="body">
       <div v-if="focused && query" class="search-dropdown glass" :style="dropStyle">
-        <div v-if="results.length === 0" class="search-dropdown__empty text-low">
+        <div v-if="loadingData" class="search-dropdown__empty text-low">搜索中…</div>
+        <div v-else-if="results.length === 0" class="search-dropdown__empty text-low">
           未找到「{{ query }}」相关资源，试试其他关键词
         </div>
         <template v-else>
@@ -53,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useData } from '../composables/useData.js'
 import { detailHref } from '../lib/short.js'
 
@@ -62,9 +63,11 @@ const props = defineProps({
   autofocus: { type: Boolean, default: false },
 })
 
-const { state, catLabel, catMeta } = useData()
+const { state, load, catLabel, catMeta } = useData()
 const query = ref('')
 const focused = ref(false)
+// 首页走 loadHome()，state.resources 为空；首次输入时才按需拉全量，避免首页白拉 568KB
+const loadingData = ref(false)
 const inputRef = ref(null)
 const boxRef = ref(null)
 
@@ -77,6 +80,16 @@ const dropStyle = computed(() => ({
   width: `${dropPos.value.width}px`,
   maxHeight: `${dropPos.value.maxH}px`,
 }))
+
+function ensureResources() {
+  if (state.resources.length || loadingData.value) return
+  loadingData.value = true
+  Promise.resolve(load()).finally(() => (loadingData.value = false))
+}
+
+watch(query, (v) => {
+  if (v.trim()) ensureResources()
+})
 
 function updateDropPos() {
   const el = boxRef.value
