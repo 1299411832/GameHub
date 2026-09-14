@@ -1,5 +1,11 @@
 [
   {
+    "hash": "0e57350",
+    "date": "2026-09-14T09:40:55+08:00",
+    "message": "perf(brand): 品牌名构建期注入 HTML，消除首帧「GameHub → 游戏源神」闪烁",
+    "url": "https://github.com/xi7ang/GameHub/commit/0e57350fd0465713ae4b0787d5e51b695a50bd65"
+  },
+  {
     "hash": "ed702f5",
     "date": "2026-09-14T09:28:31+08:00",
     "message": "style(search): 下拉结果条目去掉网盘平台标签，仅保留分类",
@@ -172,11 +178,5 @@
     "date": "2026-09-12T13:03:37+08:00",
     "message": "sync: 新增资源《万物皆可蟹：动物进化v1.0.1解压即玩》",
     "url": "https://github.com/xi7ang/GameHub/commit/c6006f4e645b98a9089d4b6c525d5d763e3010eb"
-  },
-  {
-    "hash": "fc1abe5",
-    "date": "2026-09-12T13:02:06+08:00",
-    "message": "sync: 新增资源《食魂徒：蓝色圣殇中文版》",
-    "url": "https://github.com/xi7ang/GameHub/commit/fc1abe5df2f4a86570059b00e76c2aae47f5f9b0"
   }
 ]

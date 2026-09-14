@@ -166,6 +166,7 @@ import SearchBox from '../components/SearchBox.vue'
 import ResourceCard from '../components/ResourceCard.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import { useData } from '../composables/useData.js'
+import { BUILD_ID } from '../lib/version.js'
 
 const { state, loadHome } = useData()
 const site = computed(() => state.site)
@@ -191,7 +192,7 @@ const ANNOUNCEMENT_DISMISSED_KEY = 'gamehub-announcement-dismissed'
 const hotKeywords = ref([])
 async function pickRandomHotKeywords() {
   try {
-    const res = await fetch(`${import.meta.env.BASE_URL}data/hotKeywords.json`)
+    const res = await fetch(`${import.meta.env.BASE_URL}data/hotKeywords.json?v=${BUILD_ID || Date.now()}`)
     if (!res.ok) return
     const data = await res.json()
     const pool = Array.isArray(data.keywords) ? data.keywords : []

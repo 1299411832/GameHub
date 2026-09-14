@@ -2,6 +2,7 @@
 // 数据加载：fetch public/data/*.json，全局单例缓存
 import { reactive } from 'vue'
 import { buildHomeShape } from '../lib/homeShape.js'
+import { BUILD_ID } from '../lib/version.js'
 
 const BASE = import.meta.env.BASE_URL // '/'
 
@@ -88,28 +89,21 @@ function applyBrandToDoc(site) {
 }
 
 // ── 强缓存清除标记 ──────────────────────────────────────────
-// GitHub Pages 对 *.json 默认返回 cache-control: max-age=600，Cloudflare 再缓存一层，
-// 导致 Edge 等浏览器本地缓存「资源不存在」的旧数据。每次部署后给 fetch URL 加
-// ?v= 时间戳，强制跳过浏览器本地缓存，始终回源拿最新 JSON。
-let _cacheBust = async () => {
-  try {
-    const r = await fetch(`${BASE}data/site.json`).then((r) => r.json())
-    // 用 site.json 的 version 字段或 announcementModal.version 作 bust key
-    const v = r?.announcementModal?.version || r?.version || Date.now()
-    return `v=${encodeURIComponent(String(v))}`
-  } catch {
-    return `_=${Date.now()}`
-  }
-}
+// GitHub Pages / Cloudflare 对 *.json 是强缓存（max-age=600）。用构建号当 key：
+// 每次部署必变 → 数据文件 URL 跟着变，浏览器与边缘节点必然回源，用户无需强刷。
+// 构建号由 scripts/inject-build.js 注入 HTML（window.__BUILD_ID__），与 version.json 同源。
+const CACHE_KEY = BUILD_ID || 'dev'
+// site.json 也要带 key：它是公告/配置的直接来源，之前唯一没被 bust 的数据文件
+const CB = `v=${encodeURIComponent(CACHE_KEY)}`
 
 async function load() {
   if (loaded) return state
-  const cb = await _cacheBust()
+  const cb = CB
   try {
     const [res, cats, site, commits] = await Promise.all([
       fetch(`${BASE}data/resources.json?${cb}`).then((r) => r.json()),
       fetch(`${BASE}data/categories.json?${cb}`).then((r) => r.json()),
-      fetch(`${BASE}data/site.json`).then((r) => r.json()),
+      fetch(`${BASE}data/site.json?${cb}`).then((r) => r.json()),
       fetch(`${BASE}data/commits.json?${cb}`).then((r) => r.json()),
     ])
     state.resources = res.sort((a, b) => (b.addedAt || '').localeCompare(a.addedAt || ''))
@@ -131,11 +125,11 @@ async function load() {
 async function loadHome() {
   if (homeLoaded) return state
   try {
-    const cb = await _cacheBust()
+    const cb = CB
     const [home, cats, site] = await Promise.all([
       fetch(`${BASE}data/home.json?${cb}`).then((r) => r.json()),
       fetch(`${BASE}data/categories.json?${cb}`).then((r) => r.json()),
-      fetch(`${BASE}data/site.json`).then((r) => r.json()),
+      fetch(`${BASE}data/site.json?${cb}`).then((r) => r.json()),
     ])
     if (!home || !Array.isArray(home.coverPool)) throw new Error('home.json 结构异常')
     state.home = home
@@ -149,7 +143,7 @@ async function loadHome() {
       const [res, cats, site] = await Promise.all([
         fetch(`${BASE}data/resources.json?${cb}`).then((r) => r.json()),
         fetch(`${BASE}data/categories.json?${cb}`).then((r) => r.json()),
-        fetch(`${BASE}data/site.json`).then((r) => r.json()),
+        fetch(`${BASE}data/site.json?${cb}`).then((r) => r.json()),
       ])
       const sorted = res.sort((a, b) => (b.addedAt || '').localeCompare(a.addedAt || ''))
       state.resources = sorted

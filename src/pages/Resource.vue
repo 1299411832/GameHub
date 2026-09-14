@@ -117,6 +117,7 @@ import ResourceCard from '../components/ResourceCard.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import { useData } from '../composables/useData.js'
 import { shortId } from '../lib/short.js'
+import { BUILD_ID } from '../lib/version.js'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -141,7 +142,7 @@ const r = computed(() => {
 async function resolveLegacy() {
   if (r.value || !legacyCat || !rawId || !/^\d+$/.test(rawId)) return
   try {
-    const map = await fetch(`${BASE}data/legacy-map.json`).then((res) => res.json())
+    const map = await fetch(`${BASE}data/legacy-map.json?v=${BUILD_ID || Date.now()}`).then((res) => res.json())
     const newId = map[`${legacyCat}:${rawId}`]
     if (newId) {
       location.replace(`/resource.html?id=${shortId(newId)}`)

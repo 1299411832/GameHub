@@ -37,6 +37,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { BUILD_ID } from '../lib/version.js'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -79,7 +80,7 @@ const gameCovers = ref([...DEFAULT_COVERS])
 // 从 bgwall.json 加载配置（有则覆盖默认）
 onMounted(async () => {
   try {
-    const res = await fetch(`${BASE}data/bgwall.json`)
+    const res = await fetch(`${BASE}data/bgwall.json?v=${BUILD_ID || Date.now()}`)
     if (!res.ok) return
     const data = await res.json()
     if (data.images && data.images.length) {
