@@ -11,8 +11,9 @@
     "validate": "node scripts/validate.js",
     "gen-commits": "node scripts/gen-commits.js",
     "gen-home": "node scripts/gen-home.js",
+    "gen-notify": "node scripts/gen-notify.js",
     "gen-sitemap": "node scripts/gen-sitemap.js",
-    "prebuild": "node scripts/validate.js && node scripts/gen-commits.js && node scripts/gen-home.js"
+    "prebuild": "node scripts/validate.js && node scripts/gen-commits.js && node scripts/gen-home.js && node scripts/gen-notify.js"
   },
   "dependencies": {
     "qrcode": "^1.5.4",
