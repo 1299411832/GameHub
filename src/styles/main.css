@@ -80,6 +80,9 @@
   /* 「手气不错」按钮底色：暗色模式下比页面背景（bg-1 #14171c）略亮一档 */
   --lucky-bg: #1e232c;
   --lucky-bg-hover: #262c37;
+  /* 「手气不错」骰子图标：暗色模式用略暖的米白骰身，保证在深底上看得清 */
+  --lucky-die-face: #e6e3dc;
+  --lucky-die-pip: #2b2a26;
 }
 
 /* ── Tokens · 浅色 ── */
@@ -125,6 +128,9 @@
   /* 「手气不错」按钮底色：浅色页面下比纯白略深一点点，无边框界定 */
   --lucky-bg: #f8f9fa;
   --lucky-bg-hover: #eef0f2;
+  /* 「手气不错」骰子图标：白骰身 + 深灰点数 */
+  --lucky-die-face: #ffffff;
+  --lucky-die-pip: #33322e;
 }
 
 /* ── Reset & Base ── */

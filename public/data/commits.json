@@ -1,5 +1,11 @@
 [
   {
+    "hash": "084fe10",
+    "date": "2026-09-15T20:16:48+08:00",
+    "message": "style(home): 手气不错取消 title 提示，骰子图标改为水平自转",
+    "url": "https://github.com/xi7ang/GameHub/commit/084fe105ae4bf349bcb18a7209edfaf6e9a020fa"
+  },
+  {
     "hash": "d83a18f",
     "date": "2026-09-15T19:20:22+08:00",
     "message": "feat(home): 手气不错改为随机跳转有封面的资源详情页",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T21:06:53+08:00",
     "message": "ci: 新增 Aliyun ECS 部署工作流（rsync-deployments → https://mibear.top）",
     "url": "https://github.com/xi7ang/GameHub/commit/47edda07f64c21ad6f89f74d49ef380072d8c3ba"
-  },
-  {
-    "hash": "374ff9f",
-    "date": "2026-09-13T20:31:33+08:00",
-    "message": "chore: 每日公告：发布【2026-09-13】游戏资源更新通知（5条新资源）",
-    "url": "https://github.com/xi7ang/GameHub/commit/374ff9f86d8d8ea41602f222d7608db6fb061f29"
   }
 ]

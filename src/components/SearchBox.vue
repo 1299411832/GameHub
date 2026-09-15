@@ -28,12 +28,18 @@
         @mousedown.prevent
         @click="luckySearch"
       >
-        <svg class="search-bar__lucky-icon" viewBox="0 0 16 16" width="20" height="20" fill="none" aria-hidden="true">
-          <rect x="2.3" y="2.3" width="11.4" height="11.4" rx="3.4" stroke="currentColor" stroke-width="1.3" />
-          <circle cx="5.7" cy="5.7" r="1.05" fill="currentColor" />
-          <circle cx="8" cy="8" r="1.05" fill="currentColor" />
-          <circle cx="10.3" cy="10.3" r="1.05" fill="currentColor" />
-        </svg>
+        <span class="search-bar__lucky-die" aria-hidden="true">
+          <span class="search-bar__lucky-die__cube">
+            <span
+              v-for="(face, fi) in DIE_FACES"
+              :key="fi"
+              class="search-bar__lucky-die__face"
+              :style="{ transform: DIE_FACE_TRANSFORMS[fi] }"
+            >
+              <i v-for="(pip, pi) in face" :key="pi" :style="{ gridRow: pip[0], gridColumn: pip[1] }"></i>
+            </span>
+          </span>
+        </span>
         <span>手气不错</span>
       </button>
     </div>
@@ -78,6 +84,25 @@ const props = defineProps({
   // 首页传入「有封面的资源」池（home.json 的 coverPool）；为空时不渲染「手气不错」
   luckyResources: { type: Array, default: () => [] },
 })
+
+// 「手气不错」图标：真 3D 骰子。1~6 面的点数位置按 3×3 网格坐标 [行, 列] 摆放
+const DIE_FACES = [
+  [[2, 2]],
+  [[1, 1], [3, 3]],
+  [[1, 1], [2, 2], [3, 3]],
+  [[1, 1], [1, 3], [3, 1], [3, 3]],
+  [[1, 1], [1, 3], [2, 2], [3, 1], [3, 3]],
+  [[1, 1], [1, 3], [2, 1], [2, 3], [3, 1], [3, 3]],
+]
+// 立方体 6 个面：前1/后6、右2/左5、上3/下4——对面点数之和均为 7，按真骰子来
+const DIE_FACE_TRANSFORMS = [
+  'translateZ(10px)',
+  'rotateY(90deg) translateZ(10px)',
+  'rotateX(90deg) translateZ(10px)',
+  'rotateX(-90deg) translateZ(10px)',
+  'rotateY(-90deg) translateZ(10px)',
+  'rotateY(180deg) translateZ(10px)',
+]
 
 const { state, load, catLabel, catMeta } = useData()
 const query = ref('')
@@ -253,23 +278,53 @@ onBeforeUnmount(() => {
   cursor: pointer;
   transition: background 0.25s, transform 0.1s;
 }
-.search-bar__lucky-icon {
+/* 真 3D 骰子图标：立方体绕竖轴水平自转，六个面用网格小圆点画点数 */
+.search-bar__lucky-die {
   flex-shrink: 0;
-  opacity: 0.9;
-  transition: opacity 0.25s;
-  /* 骰子水平自转：绕元素中心匀速转，只管图标、按钮本体保持静止 */
-  transform-origin: 50% 50%;
-  animation: lucky-spin 4s linear infinite;
+  width: 20px;
+  height: 20px;
+  perspective: 100px;
 }
-@keyframes lucky-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.search-bar__lucky-die__cube {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  /* 静止态（含 reduced-motion）也给个三维视角，别看起来像张平卡片 */
+  transform: rotateX(-16deg) rotateY(-24deg);
+  animation: lucky-die-spin 5s linear infinite;
+}
+/* 固定一个略俯视的视角，让立方体一望即知是骰子而非翻转的卡片 */
+@keyframes lucky-die-spin {
+  from { transform: rotateX(-16deg) rotateY(0deg); }
+  to { transform: rotateX(-16deg) rotateY(360deg); }
+}
+.search-bar__lucky-die__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: var(--lucky-die-face);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.10);
+  backface-visibility: hidden;
+}
+.search-bar__lucky-die__face i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--lucky-die-pip);
+  align-self: center;
+  justify-self: center;
 }
 .search-bar__lucky:hover { background: var(--lucky-bg-hover); }
-.search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
 @media (prefers-reduced-motion: reduce) {
-  .search-bar__lucky-icon { animation: none; }
+  .search-bar__lucky-die__cube { animation: none; }
 }
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */
