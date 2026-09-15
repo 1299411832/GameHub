@@ -21,6 +21,14 @@
           <path d="M10.5 3.5L3.5 10.5M3.5 3.5l7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
+      <button
+        v-if="luckyKeywords.length"
+        type="button"
+        class="search-bar__lucky"
+        title="随机挑一个热门关键词搜索"
+        @mousedown.prevent
+        @click="luckySearch"
+      >🎲 手气不错</button>
     </div>
 
     <!-- 即时下拉结果（Teleport 到 body 根级，fixed 跟随输入框，置顶避免被任何元素遮挡） -->
@@ -60,6 +68,8 @@ import { detailHref } from '../lib/short.js'
 const props = defineProps({
   placeholder: { type: String, default: '搜索游戏、资源名称...' },
   autofocus: { type: Boolean, default: false },
+  // 首页传入热门关键词池（hotKeywords.json 全量）；为空时不渲染「手气不错」
+  luckyKeywords: { type: Array, default: () => [] },
 })
 
 const { state, load, catLabel, catMeta } = useData()
@@ -124,6 +134,13 @@ function highlight(text) {
 function goSearch() {
   if (!query.value.trim()) return
   window.location.href = `/search.html?q=${encodeURIComponent(query.value.trim())}`
+}
+// 手气不错：从热门关键词池随机抽一个，直接跳搜索页
+function luckySearch() {
+  const pool = props.luckyKeywords
+  if (!pool.length) return
+  const k = pool[Math.floor(Math.random() * pool.length)]
+  window.location.href = `/search.html?q=${encodeURIComponent(k)}`
 }
 function onFocus() {
   focused.value = true
@@ -209,6 +226,30 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+/* 手气不错：透明气泡，颜色全部走主题变量，白天/黑夜自动适配 */
+.search-bar__lucky {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-mid);
+  font-size: 12.5px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+.search-bar__lucky:hover {
+  color: var(--text-hi);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.12);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.18);
+}
+.search-bar__lucky:active { transform: scale(0.96); }
+@media (max-width: 420px) {
+  .search-bar__lucky { padding: 7px 10px; font-size: 12px; }
 }
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */
