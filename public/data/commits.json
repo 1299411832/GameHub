@@ -1,5 +1,11 @@
 [
   {
+    "hash": "d83a18f",
+    "date": "2026-09-15T19:20:22+08:00",
+    "message": "feat(home): 手气不错改为随机跳转有封面的资源详情页",
+    "url": "https://github.com/xi7ang/GameHub/commit/d83a18f3c0c865f51d647e9cf3d9c844a2eb9f29"
+  },
+  {
     "hash": "a13be5f",
     "date": "2026-09-15T19:15:40+08:00",
     "message": "style(home): 手气不错改浅灰底+深灰字，取消浮动与变色动画，去阴影",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T20:31:33+08:00",
     "message": "chore: 每日公告：发布【2026-09-13】游戏资源更新通知（5条新资源）",
     "url": "https://github.com/xi7ang/GameHub/commit/374ff9f86d8d8ea41602f222d7608db6fb061f29"
-  },
-  {
-    "hash": "860f4ca",
-    "date": "2026-09-13T14:16:16+08:00",
-    "message": "fix(announcement): 最新公告展开后隐藏镜面反光，仅收起状态显示",
-    "url": "https://github.com/xi7ang/GameHub/commit/860f4ca5a70c93bd4c4df8ee7b8cb769eadc2b0c"
   }
 ]

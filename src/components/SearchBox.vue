@@ -25,7 +25,6 @@
         v-if="luckyResources.length"
         type="button"
         class="search-bar__lucky"
-        title="随机打开一个有封面的游戏资源"
         @mousedown.prevent
         @click="luckySearch"
       >
@@ -254,10 +253,24 @@ onBeforeUnmount(() => {
   cursor: pointer;
   transition: background 0.25s, transform 0.1s;
 }
-.search-bar__lucky-icon { flex-shrink: 0; opacity: 0.9; transition: opacity 0.25s; }
+.search-bar__lucky-icon {
+  flex-shrink: 0;
+  opacity: 0.9;
+  transition: opacity 0.25s;
+  /* 骰子水平自转：绕元素中心匀速转，只管图标、按钮本体保持静止 */
+  transform-origin: 50% 50%;
+  animation: lucky-spin 4s linear infinite;
+}
+@keyframes lucky-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 .search-bar__lucky:hover { background: var(--lucky-bg-hover); }
 .search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
+@media (prefers-reduced-motion: reduce) {
+  .search-bar__lucky-icon { animation: none; }
+}
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */
   border-radius: 14px;
