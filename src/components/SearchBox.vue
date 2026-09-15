@@ -28,7 +28,15 @@
         title="随机挑一个热门关键词搜索"
         @mousedown.prevent
         @click="luckySearch"
-      >🎲 手气不错</button>
+      >
+        <svg class="search-bar__lucky-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true">
+          <rect x="2.3" y="2.3" width="11.4" height="11.4" rx="3.4" stroke="currentColor" stroke-width="1.3" />
+          <circle cx="5.7" cy="5.7" r="1.05" fill="currentColor" />
+          <circle cx="8" cy="8" r="1.05" fill="currentColor" />
+          <circle cx="10.3" cy="10.3" r="1.05" fill="currentColor" />
+        </svg>
+        <span>手气不错</span>
+      </button>
     </div>
 
     <!-- 即时下拉结果（Teleport 到 body 根级，fixed 跟随输入框，置顶避免被任何元素遮挡） -->
@@ -229,7 +237,11 @@ onBeforeUnmount(() => {
 }
 /* 手气不错：透明气泡，颜色全部走主题变量，白天/黑夜自动适配 */
 .search-bar__lucky {
+  position: relative;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   white-space: nowrap;
   padding: 7px 13px;
   border-radius: 999px;
@@ -239,17 +251,35 @@ onBeforeUnmount(() => {
   font-size: 12.5px;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.1s;
+  transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.1s;
+}
+.search-bar__lucky-icon { flex-shrink: 0; opacity: 0.82; transition: opacity 0.25s; }
+/* 呼吸光：独立伪元素做光环，不占用按钮自身的 hover 样式 */
+.search-bar__lucky::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: lucky-breathe 5.2s ease-in-out infinite;
+}
+@keyframes lucky-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+  50% { box-shadow: 0 0 15px 0 rgba(var(--accent-rgb), 0.30), 0 0 4px 0 rgba(var(--accent-rgb), 0.20); }
 }
 .search-bar__lucky:hover {
   color: var(--text-hi);
   border-color: rgba(var(--accent-rgb), 0.5);
   background: rgba(var(--accent-rgb), 0.12);
-  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.18);
 }
+.search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
+@media (prefers-reduced-motion: reduce) {
+  .search-bar__lucky::after { animation: none; }
+}
 @media (max-width: 420px) {
-  .search-bar__lucky { padding: 7px 10px; font-size: 12px; }
+  .search-bar__lucky { padding: 7px 10px; }
+  .search-bar__lucky span { display: none; }
 }
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */

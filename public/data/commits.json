@@ -1,5 +1,11 @@
 [
   {
+    "hash": "0c07e82",
+    "date": "2026-09-15T18:23:47+08:00",
+    "message": "feat(home): 搜索框尾部加「手气不错」气泡按钮，随机搜索热门关键词",
+    "url": "https://github.com/xi7ang/GameHub/commit/0c07e82257efda4da4b47fc0881a2fd697433557"
+  },
+  {
     "hash": "7222c65",
     "date": "2026-09-15T07:25:26+08:00",
     "message": "sync: 新增资源《动漫商店模拟器/Anime Shop Simulator》",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T01:14:49+08:00",
     "message": "sync: 新增资源《奥日2：精灵与萤火意志中文版》",
     "url": "https://github.com/xi7ang/GameHub/commit/c7cf9f101992275a9c73ceafab4af3fe03a5ba38"
-  },
-  {
-    "hash": "616a3d9",
-    "date": "2026-09-13T00:52:49+08:00",
-    "message": "sync: 新增资源《终结之日 v1.4.15内置菜单》",
-    "url": "https://github.com/xi7ang/GameHub/commit/616a3d9124fd486f6c5e6df5ba76c75de1595444"
   }
 ]
