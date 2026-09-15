@@ -273,7 +273,7 @@ onBeforeUnmount(() => {
   box-shadow: none;
   background: var(--lucky-bg);
   color: var(--text-mid);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   cursor: pointer;
   transition: background 0.25s, transform 0.1s;

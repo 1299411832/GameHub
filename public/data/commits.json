@@ -1,5 +1,11 @@
 [
   {
+    "hash": "b1a1111",
+    "date": "2026-09-15T20:20:46+08:00",
+    "message": "feat(home): 手气不错图标改为真 3D 骰子，绕竖轴水平自转",
+    "url": "https://github.com/xi7ang/GameHub/commit/b1a111128d9b648ea1e1ea44cb63307996e04fcc"
+  },
+  {
     "hash": "084fe10",
     "date": "2026-09-15T20:16:48+08:00",
     "message": "style(home): 手气不错取消 title 提示，骰子图标改为水平自转",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T21:20:34+08:00",
     "message": "feat(app): 下载按钮改指阿里云 ECS 的 APK，二维码改指 https://mibear.top/app.html",
     "url": "https://github.com/xi7ang/GameHub/commit/5f9a9690412aa1d9e12ae8c2187dab27e700afaf"
-  },
-  {
-    "hash": "47edda0",
-    "date": "2026-09-13T21:06:53+08:00",
-    "message": "ci: 新增 Aliyun ECS 部署工作流（rsync-deployments → https://mibear.top）",
-    "url": "https://github.com/xi7ang/GameHub/commit/47edda07f64c21ad6f89f74d49ef380072d8c3ba"
   }
 ]
