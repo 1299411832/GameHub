@@ -22,10 +22,10 @@
         </svg>
       </button>
       <button
-        v-if="luckyKeywords.length"
+        v-if="luckyResources.length"
         type="button"
         class="search-bar__lucky"
-        title="随机挑一个热门关键词搜索"
+        title="随机打开一个有封面的游戏资源"
         @mousedown.prevent
         @click="luckySearch"
       >
@@ -76,8 +76,8 @@ import { detailHref } from '../lib/short.js'
 const props = defineProps({
   placeholder: { type: String, default: '搜索游戏、资源名称...' },
   autofocus: { type: Boolean, default: false },
-  // 首页传入热门关键词池（hotKeywords.json 全量）；为空时不渲染「手气不错」
-  luckyKeywords: { type: Array, default: () => [] },
+  // 首页传入「有封面的资源」池（home.json 的 coverPool）；为空时不渲染「手气不错」
+  luckyResources: { type: Array, default: () => [] },
 })
 
 const { state, load, catLabel, catMeta } = useData()
@@ -143,12 +143,13 @@ function goSearch() {
   if (!query.value.trim()) return
   window.location.href = `/search.html?q=${encodeURIComponent(query.value.trim())}`
 }
-// 手气不错：从热门关键词池随机抽一个，直接跳搜索页
+// 手气不错：从「有封面的资源」池随机抽一个，直接跳它的详情页
 function luckySearch() {
-  const pool = props.luckyKeywords
+  const pool = props.luckyResources
   if (!pool.length) return
-  const k = pool[Math.floor(Math.random() * pool.length)]
-  window.location.href = `/search.html?q=${encodeURIComponent(k)}`
+  const r = pool[Math.floor(Math.random() * pool.length)]
+  if (!r?.id) return
+  window.location.href = detailHref(r.id)
 }
 function onFocus() {
   focused.value = true

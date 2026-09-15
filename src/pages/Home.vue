@@ -9,7 +9,7 @@
         <h1 class="hero__title">发现全网<br /><em>优质游戏资源</em></h1>
         <p class="hero__subtitle">{{ site?.slogan }} · 单机 / 手游 / Switch / MOD 一站式聚合</p>
         <div class="hero__search">
-          <SearchBox :lucky-keywords="hotKeywordPool" />
+          <SearchBox :lucky-resources="luckyCoverPool" />
         </div>
         <div class="hero__hot">
           <span class="hot-label">🔥 热门搜索</span>
@@ -191,15 +191,12 @@ const ANNOUNCEMENT_DISMISSED_KEY = 'gamehub-announcement-dismissed'
 
 // 热门搜索关键词：每次打开从 hotKeywords.json 的 100+ 词中随机选 6-7 个
 const hotKeywords = ref([])
-// 全量热词池，供搜索框「手气不错」随机抽词
-const hotKeywordPool = ref([])
 async function pickRandomHotKeywords() {
   try {
     const res = await fetch(`${import.meta.env.BASE_URL}data/hotKeywords.json?v=${BUILD_ID || Date.now()}`)
     if (!res.ok) return
     const data = await res.json()
     const pool = Array.isArray(data.keywords) ? data.keywords : []
-    hotKeywordPool.value = pool
     // 随机洗牌
     const arr = [...pool]
     for (let i = arr.length - 1; i > 0; i--) {
@@ -214,6 +211,8 @@ async function pickRandomHotKeywords() {
 
 // 游戏推荐：每次打开页面从「有封面的资源池」中随机选 8 个（池来自 home.json）
 const featured = ref([])
+// 「手气不错」的随机池：同一份有封面的资源（home.json 的 coverPool，437 条）
+const luckyCoverPool = computed(() => state.home?.coverPool || [])
 function pickRandomFeatured() {
   const pool = state.home?.coverPool || []
   const arr = [...pool]
