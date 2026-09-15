@@ -1,5 +1,11 @@
 [
   {
+    "hash": "7da8f53",
+    "date": "2026-09-15T18:31:20+08:00",
+    "message": "style(home): 手气不错改用 SVG 骰子图标 + 慢呼吸光环，去掉 emoji",
+    "url": "https://github.com/xi7ang/GameHub/commit/7da8f538380ff826bf3433e2f65098cb6d45b518"
+  },
+  {
     "hash": "0c07e82",
     "date": "2026-09-15T18:23:47+08:00",
     "message": "feat(home): 搜索框尾部加「手气不错」气泡按钮，随机搜索热门关键词",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T01:28:23+08:00",
     "message": "sync: 新增资源《转生史莱姆异世界冒险RPG》",
     "url": "https://github.com/xi7ang/GameHub/commit/b9fc27d5740b39a71f9fab0f09473b95442adc11"
-  },
-  {
-    "hash": "c7cf9f1",
-    "date": "2026-09-13T01:14:49+08:00",
-    "message": "sync: 新增资源《奥日2：精灵与萤火意志中文版》",
-    "url": "https://github.com/xi7ang/GameHub/commit/c7cf9f101992275a9c73ceafab4af3fe03a5ba38"
   }
 ]

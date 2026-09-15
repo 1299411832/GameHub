@@ -245,13 +245,15 @@ onBeforeUnmount(() => {
   white-space: nowrap;
   padding: 7px 13px;
   border-radius: 999px;
-  border: 1px solid var(--glass-border);
+  border: none;
   background: transparent;
   color: var(--text-mid);
   font-size: 12.5px;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.1s;
+  transition: color 0.25s, background 0.25s, transform 0.1s;
+  /* 上下缓慢浮动：用独立的 translate 属性，避开与 :active 的 transform 冲突 */
+  animation: lucky-float 6s ease-in-out infinite;
 }
 .search-bar__lucky-icon { flex-shrink: 0; opacity: 0.82; transition: opacity 0.25s; }
 /* 呼吸光：独立伪元素做光环，不占用按钮自身的 hover 样式 */
@@ -267,19 +269,19 @@ onBeforeUnmount(() => {
   0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
   50% { box-shadow: 0 0 15px 0 rgba(var(--accent-rgb), 0.30), 0 0 4px 0 rgba(var(--accent-rgb), 0.20); }
 }
+@keyframes lucky-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
 .search-bar__lucky:hover {
   color: var(--text-hi);
-  border-color: rgba(var(--accent-rgb), 0.5);
   background: rgba(var(--accent-rgb), 0.12);
 }
 .search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
 @media (prefers-reduced-motion: reduce) {
+  .search-bar__lucky { animation: none; }
   .search-bar__lucky::after { animation: none; }
-}
-@media (max-width: 420px) {
-  .search-bar__lucky { padding: 7px 10px; }
-  .search-bar__lucky span { display: none; }
 }
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */
