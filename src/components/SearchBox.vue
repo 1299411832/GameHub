@@ -29,7 +29,7 @@
         @mousedown.prevent
         @click="luckySearch"
       >
-        <svg class="search-bar__lucky-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true">
+        <svg class="search-bar__lucky-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true">
           <rect x="2.3" y="2.3" width="11.4" height="11.4" rx="3.4" stroke="currentColor" stroke-width="1.3" />
           <circle cx="5.7" cy="5.7" r="1.05" fill="currentColor" />
           <circle cx="8" cy="8" r="1.05" fill="currentColor" />
@@ -241,47 +241,39 @@ onBeforeUnmount(() => {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   white-space: nowrap;
-  padding: 7px 13px;
+  padding: 8px 15px;
   border-radius: 999px;
   border: none;
   background: transparent;
-  color: var(--text-mid);
-  font-size: 12.5px;
+  color: var(--macaron-pink);
+  font-size: 14px;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.25s, background 0.25s, transform 0.1s;
-  /* 上下缓慢浮动：用独立的 translate 属性，避开与 :active 的 transform 冲突 */
-  animation: lucky-float 6s ease-in-out infinite;
+  transition: background 0.25s, transform 0.1s;
+  /* 浮动用独立 translate，避开与 :active 的 transform 冲突；颜色走马卡龙呼吸变色 */
+  animation: lucky-float 6s ease-in-out infinite, lucky-hue 10s ease-in-out infinite;
 }
-.search-bar__lucky-icon { flex-shrink: 0; opacity: 0.82; transition: opacity 0.25s; }
-/* 呼吸光：独立伪元素做光环，不占用按钮自身的 hover 样式 */
-.search-bar__lucky::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  animation: lucky-breathe 5.2s ease-in-out infinite;
-}
-@keyframes lucky-breathe {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
-  50% { box-shadow: 0 0 15px 0 rgba(var(--accent-rgb), 0.30), 0 0 4px 0 rgba(var(--accent-rgb), 0.20); }
-}
+.search-bar__lucky-icon { flex-shrink: 0; opacity: 0.9; transition: opacity 0.25s; }
 @keyframes lucky-float {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -4px; }
 }
-.search-bar__lucky:hover {
-  color: var(--text-hi);
-  background: rgba(var(--accent-rgb), 0.12);
+/* 呼吸变色：在 6 个马卡龙色间缓慢循环；色值按白天/黑夜主题取不同明度 */
+@keyframes lucky-hue {
+  0%, 100% { color: var(--macaron-pink); }
+  17% { color: var(--macaron-mint); }
+  33% { color: var(--macaron-lemon); }
+  50% { color: var(--macaron-lilac); }
+  67% { color: var(--macaron-sky); }
+  83% { color: var(--macaron-peach); }
 }
+.search-bar__lucky:hover { background: rgba(var(--accent-rgb), 0.10); }
 .search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
 @media (prefers-reduced-motion: reduce) {
   .search-bar__lucky { animation: none; }
-  .search-bar__lucky::after { animation: none; }
 }
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */

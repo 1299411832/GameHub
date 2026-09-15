@@ -1,5 +1,11 @@
 [
   {
+    "hash": "062ebd1",
+    "date": "2026-09-15T18:35:59+08:00",
+    "message": "style(home): 手气不错去边框、文字常显，改上下缓慢浮动",
+    "url": "https://github.com/xi7ang/GameHub/commit/062ebd1cdaccd8160db3b51f4b49ff07fcbf0e8e"
+  },
+  {
     "hash": "7da8f53",
     "date": "2026-09-15T18:31:20+08:00",
     "message": "style(home): 手气不错改用 SVG 骰子图标 + 慢呼吸光环，去掉 emoji",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T01:44:22+08:00",
     "message": "sync: 新增资源《巫女贴纸日记免广告版》",
     "url": "https://github.com/xi7ang/GameHub/commit/7499ec87c3a69b4abc11cd1283a47ebc5c451345"
-  },
-  {
-    "hash": "b9fc27d",
-    "date": "2026-09-13T01:28:23+08:00",
-    "message": "sync: 新增资源《转生史莱姆异世界冒险RPG》",
-    "url": "https://github.com/xi7ang/GameHub/commit/b9fc27d5740b39a71f9fab0f09473b95442adc11"
   }
 ]
