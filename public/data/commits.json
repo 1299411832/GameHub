@@ -1,5 +1,11 @@
 [
   {
+    "hash": "8ce51da",
+    "date": "2026-09-15T18:52:36+08:00",
+    "message": "style(home): 手气不错文字 18px、图标 20px",
+    "url": "https://github.com/xi7ang/GameHub/commit/8ce51da40bb2192b3e0b6e6eed6eacade46d3ce6"
+  },
+  {
     "hash": "85605e6",
     "date": "2026-09-15T18:43:45+08:00",
     "message": "style(home): 手气不错放大字号/图标，呼吸光改为马卡龙呼吸变色",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T14:06:48+08:00",
     "message": "fix(announcement): 最新公告反光改为整条位移不跳帧，并按主题配色（浅色模式可见）",
     "url": "https://github.com/xi7ang/GameHub/commit/3a93be8bfc0312ca8d01c50b7acef025041282be"
-  },
-  {
-    "hash": "e05cb45",
-    "date": "2026-09-13T14:03:01+08:00",
-    "message": "style: 公告最新条目与安卓APP按钮改为镜面反光（取消呼吸发光）",
-    "url": "https://github.com/xi7ang/GameHub/commit/e05cb45998999351e9db8836ee9571216071e738"
   }
 ]

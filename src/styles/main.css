@@ -84,6 +84,10 @@
   --macaron-lilac: #c4b5fd;
   --macaron-sky: #93c5fd;
   --macaron-peach: #ffb88c;
+
+  /* 「手气不错」按钮底色：暗色模式下比页面背景（bg-1 #14171c）略亮一档 */
+  --lucky-bg: #1e232c;
+  --lucky-bg-hover: #262c37;
 }
 
 /* ── Tokens · 浅色 ── */
@@ -133,6 +137,10 @@
   --macaron-lilac: #6656d6;
   --macaron-sky: #2f7fc4;
   --macaron-peach: #c95a2e;
+
+  /* 「手气不错」按钮底色：浅色页面下比纯白略深一点点，无边框界定 */
+  --lucky-bg: #f8f9fa;
+  --lucky-bg-hover: #eef0f2;
 }
 
 /* ── Reset & Base ── */

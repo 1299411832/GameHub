@@ -244,9 +244,9 @@ onBeforeUnmount(() => {
   gap: 8px;
   white-space: nowrap;
   padding: 10px 18px;
-  border-radius: 999px;
+  border-radius: 16px;
   border: none;
-  background: transparent;
+  background: var(--lucky-bg);
   color: var(--macaron-pink);
   font-size: 18px;
   line-height: 1;
@@ -269,7 +269,7 @@ onBeforeUnmount(() => {
   67% { color: var(--macaron-sky); }
   83% { color: var(--macaron-peach); }
 }
-.search-bar__lucky:hover { background: rgba(var(--accent-rgb), 0.10); }
+.search-bar__lucky:hover { background: var(--lucky-bg-hover); }
 .search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
 @media (prefers-reduced-motion: reduce) {
