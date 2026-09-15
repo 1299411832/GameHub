@@ -237,7 +237,6 @@ onBeforeUnmount(() => {
 }
 /* 手气不错：透明气泡，颜色全部走主题变量，白天/黑夜自动适配 */
 .search-bar__lucky {
-  position: relative;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -246,35 +245,18 @@ onBeforeUnmount(() => {
   padding: 10px 18px;
   border-radius: 16px;
   border: none;
+  box-shadow: none;
   background: var(--lucky-bg);
-  color: var(--macaron-pink);
+  color: var(--text-mid);
   font-size: 18px;
   line-height: 1;
   cursor: pointer;
   transition: background 0.25s, transform 0.1s;
-  /* 浮动用独立 translate，避开与 :active 的 transform 冲突；颜色走马卡龙呼吸变色 */
-  animation: lucky-float 6s ease-in-out infinite, lucky-hue 10s ease-in-out infinite;
 }
 .search-bar__lucky-icon { flex-shrink: 0; opacity: 0.9; transition: opacity 0.25s; }
-@keyframes lucky-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -4px; }
-}
-/* 呼吸变色：在 6 个马卡龙色间缓慢循环；色值按白天/黑夜主题取不同明度 */
-@keyframes lucky-hue {
-  0%, 100% { color: var(--macaron-pink); }
-  17% { color: var(--macaron-mint); }
-  33% { color: var(--macaron-lemon); }
-  50% { color: var(--macaron-lilac); }
-  67% { color: var(--macaron-sky); }
-  83% { color: var(--macaron-peach); }
-}
 .search-bar__lucky:hover { background: var(--lucky-bg-hover); }
 .search-bar__lucky:hover .search-bar__lucky-icon { opacity: 1; }
 .search-bar__lucky:active { transform: scale(0.96); }
-@media (prefers-reduced-motion: reduce) {
-  .search-bar__lucky { animation: none; }
-}
 .search-dropdown {
   /* Teleport 到 body 后由内联样式提供 fixed 定位；此处只管外观与层级 */
   border-radius: 14px;

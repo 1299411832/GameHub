@@ -1,5 +1,11 @@
 [
   {
+    "hash": "59c8486",
+    "date": "2026-09-15T19:06:55+08:00",
+    "message": "style(home): 手气不错改为圆角矩形实底按钮，浅灰白底无边框，适配日夜主题",
+    "url": "https://github.com/xi7ang/GameHub/commit/59c8486a7de96f8cf47b80709043f1d930d47a97"
+  },
+  {
     "hash": "8ce51da",
     "date": "2026-09-15T18:52:36+08:00",
     "message": "style(home): 手气不错文字 18px、图标 20px",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T14:11:57+08:00",
     "message": "fix(announcement): 反光裁剪层与位移层分离，取消扫出卡片外的溢出",
     "url": "https://github.com/xi7ang/GameHub/commit/83fa2f6d04f8ad29ecac28f1348a67c08bd67ba0"
-  },
-  {
-    "hash": "3a93be8",
-    "date": "2026-09-13T14:06:48+08:00",
-    "message": "fix(announcement): 最新公告反光改为整条位移不跳帧，并按主题配色（浅色模式可见）",
-    "url": "https://github.com/xi7ang/GameHub/commit/3a93be8bfc0312ca8d01c50b7acef025041282be"
   }
 ]
