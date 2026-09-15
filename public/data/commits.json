@@ -1,5 +1,11 @@
 [
   {
+    "hash": "85605e6",
+    "date": "2026-09-15T18:43:45+08:00",
+    "message": "style(home): 手气不错放大字号/图标，呼吸光改为马卡龙呼吸变色",
+    "url": "https://github.com/xi7ang/GameHub/commit/85605e69d92eb8b4abb092b9755d5fac726df16e"
+  },
+  {
     "hash": "062ebd1",
     "date": "2026-09-15T18:35:59+08:00",
     "message": "style(home): 手气不错去边框、文字常显，改上下缓慢浮动",
@@ -172,11 +178,5 @@
     "date": "2026-09-13T14:03:01+08:00",
     "message": "style: 公告最新条目与安卓APP按钮改为镜面反光（取消呼吸发光）",
     "url": "https://github.com/xi7ang/GameHub/commit/e05cb45998999351e9db8836ee9571216071e738"
-  },
-  {
-    "hash": "7499ec8",
-    "date": "2026-09-13T01:44:22+08:00",
-    "message": "sync: 新增资源《巫女贴纸日记免广告版》",
-    "url": "https://github.com/xi7ang/GameHub/commit/7499ec87c3a69b4abc11cd1283a47ebc5c451345"
   }
 ]

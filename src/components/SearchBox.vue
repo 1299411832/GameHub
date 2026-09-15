@@ -29,7 +29,7 @@
         @mousedown.prevent
         @click="luckySearch"
       >
-        <svg class="search-bar__lucky-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true">
+        <svg class="search-bar__lucky-icon" viewBox="0 0 16 16" width="20" height="20" fill="none" aria-hidden="true">
           <rect x="2.3" y="2.3" width="11.4" height="11.4" rx="3.4" stroke="currentColor" stroke-width="1.3" />
           <circle cx="5.7" cy="5.7" r="1.05" fill="currentColor" />
           <circle cx="8" cy="8" r="1.05" fill="currentColor" />
@@ -241,14 +241,14 @@ onBeforeUnmount(() => {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   white-space: nowrap;
-  padding: 8px 15px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: none;
   background: transparent;
   color: var(--macaron-pink);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
   transition: background 0.25s, transform 0.1s;
