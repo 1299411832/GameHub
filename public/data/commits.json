@@ -1,5 +1,11 @@
 [
   {
+    "hash": "8151f37",
+    "date": "2026-09-16T20:58:11+08:00",
+    "message": "fix(resource): title 前缀 trim，避免第 10 字符是空格时拼出双空格",
+    "url": "https://github.com/xi7ang/GameHub/commit/8151f37e194f6b8e5e37d9020e10a6da282d6235"
+  },
+  {
     "hash": "c62d3bd",
     "date": "2026-09-16T20:53:58+08:00",
     "message": "fix(resource): 详情页 title 资源名与后缀之间加空格",
@@ -172,11 +178,5 @@
     "date": "2026-09-14T21:15:41+08:00",
     "message": "chore: 每日公告：发布【2026-09-14】游戏资源更新通知（5 条新资源）",
     "url": "https://github.com/xi7ang/GameHub/commit/f9412e6880138ce0ad5476f837a22dc90ee222db"
-  },
-  {
-    "hash": "4e34cfc",
-    "date": "2026-09-14T21:12:07+08:00",
-    "message": "feat(notify): 新增 notify.json 生成脚本，作为 App 每日摘要通知的数据源",
-    "url": "https://github.com/xi7ang/GameHub/commit/4e34cfc76f283cd6c1eb8750e076193f6c4df4c1"
   }
 ]

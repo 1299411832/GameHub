@@ -131,7 +131,7 @@ const payload = {
   },
   items,
   titles: TITLES,
-  tapUrl: '/changelog.html',
+  tapUrl: '/category.html',
 }
 
 fs.writeFileSync(OUT, JSON.stringify(payload))
