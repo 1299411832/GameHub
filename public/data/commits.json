@@ -1,5 +1,11 @@
 [
   {
+    "hash": "8214ada",
+    "date": "2026-09-16T20:43:53+08:00",
+    "message": "feat(resource): 详情页 <title> 用资源名前 10 字做前缀",
+    "url": "https://github.com/xi7ang/GameHub/commit/8214ada8af7577ec17e12c15b5ce8b61967124cd"
+  },
+  {
     "hash": "2c05529",
     "date": "2026-09-16T20:32:22+08:00",
     "message": "chore: 每日公告：发布【2026-09-16】游戏资源更新通知（5条新资源）",
@@ -172,11 +178,5 @@
     "date": "2026-09-14T15:51:41+08:00",
     "message": "fix(app): 「安卓APP」入口只认壳自报标记 GameHubApp，不再误伤 QQ/微信内置浏览器",
     "url": "https://github.com/xi7ang/GameHub/commit/c61b3c84a5b83048815770e41b94493b58b5e4a3"
-  },
-  {
-    "hash": "9615c1d",
-    "date": "2026-09-14T11:41:49+08:00",
-    "message": "sync: 新增资源《穿书志：倪帝蔷决定去死 ****/Novel**** Forger: Suici》",
-    "url": "https://github.com/xi7ang/GameHub/commit/9615c1d275987f5c833720e6694048db2de82a32"
   }
 ]

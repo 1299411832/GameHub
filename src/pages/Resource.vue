@@ -132,7 +132,7 @@ function applyDocTitle() {
   const item = r.value
   if (!item?.title || titleApplied) return
   const prefix = String(item.title).slice(0, TITLE_NAME_LEN)
-  document.title = `${prefix}${document.title}`
+  document.title = `${prefix} ${document.title}`
   titleApplied = true
 }
 const rawId = params.get('id')
