@@ -4,6 +4,15 @@
 部署于 GitHub Pages，数据即仓库，commit 即更新。
 
 **线上地址：** https://pan.devmini.space/
+
+## 🏗️ 系统架构
+
+![GameHub 系统架构](docs/architecture.png)
+
+纯静态站点 + 双域名交付：Admin 直写 Contents API → 一次 push 触发两条 workflow 各自构建 → GitHub Pages 与阿里云 ECS 同时上线。没有业务后端，玩家的请求直接落到托管层的文件。
+
+<sub>图由 <a href="https://github.com/tt-a1i/archify">Archify</a> 从 <code>docs/gamehub.architecture.json</code> 生成（拓扑钉在 commit <code>9b6b952</code>，节点带源码出处）。交互版见 <code>docs/gamehub-architecture.html</code>——克隆后本地打开，可搜索节点、追踪上下游路径、切换主题、导出 PNG/SVG/WebM。</sub>
+
 ## ✨ 功能
 
 - 🔍 资源搜索（首页即时下拉 + 搜索页，`/` 快捷键聚焦）

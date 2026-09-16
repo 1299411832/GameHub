@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "GameHub 游戏资源站 · 系统架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "gamehub-architecture.html",
+    "repository": {
+      "url": "https://github.com/xi7ang/GameHub",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "9b6b952e332ad27ade7e167d55360534c8dfb391"
+    },
+    "views": [
+      { "id": "publish-path", "label": "内容发布路径", "focus": ["admin", "ghapi", "repo", "actions", "pages", "ecs"], "note": "Admin 改一个 JSON，两条 workflow 各自构建，两个域名同时上线。" },
+      { "id": "read-path", "label": "玩家读取路径", "focus": ["users", "pages", "statics", "ecs"], "note": "纯静态站点，没有业务后端：请求直接落到托管层的文件。" },
+      { "id": "app-channel", "label": "App 通知通道", "focus": ["shell", "statics", "repo"], "note": "壳只轮询 notify.json，没有推送服务。" }
+    ]
+  },
+  "components": [
+    { "id": "users", "type": "external", "label": "玩家", "sublabel": "桌面 / 手机浏览器", "pos": [60, 100], "size": [150, 64] },
+    { "id": "pages", "type": "cloud", "label": "GitHub Pages", "sublabel": "pan.devmini.space", "brand": "github", "pos": [320, 100], "size": [180, 64], "tag": "deploy.yml" },
+    { "id": "statics", "type": "database", "label": "静态数据与封面", "sublabel": "data/*.json · covers/*.webp", "pos": [600, 180], "size": [200, 72], "tag": "同源读取" },
+    { "id": "ecs", "type": "cloud", "label": "阿里云 ECS", "sublabel": "mibear.top · nginx", "brand": "alibaba-cloud", "pos": [320, 260], "size": [180, 64], "tag": "deploy-ecs.yml" },
+    { "id": "shell", "type": "frontend", "label": "Android 壳", "sublabel": "WebView + 每日摘要通知", "pos": [600, 420], "size": [200, 64], "sources": [{ "path": "scripts/gen-notify.js", "line": 100, "end_line": 122, "label": "notify.json 端上契约" }] },
+    { "id": "admin", "type": "frontend", "label": "Admin 控制台", "sublabel": "站内页面 · 浏览器里跑", "pos": [60, 700], "size": [170, 64], "tag": "无服务端", "sources": [{ "path": "src/pages/Admin.vue", "line": 727, "end_line": 774, "label": "Contents API 客户端" }] },
+    { "id": "ghapi", "type": "external", "label": "GitHub Contents API", "sublabel": "api.github.com", "brand": "github", "pos": [370, 700], "size": [200, 64] },
+    { "id": "repo", "type": "database", "label": "GameHub 仓库", "sublabel": "main · public/data", "brand": "github", "pos": [710, 700], "size": [180, 64], "tag": "唯一数据源" },
+    { "id": "actions", "type": "backend", "label": "GitHub Actions", "sublabel": "两条 workflow 并行", "brand": "github-actions", "pos": [1120, 700], "size": [200, 64], "sources": [{ "path": ".github/workflows/deploy-ecs.yml", "line": 54, "end_line": 60, "label": "rsync 部署" }, { "path": ".github/workflows/deploy.yml", "line": 60, "end_line": 60, "label": "deploy-pages" }] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "GitHub · 仓库与 CI/CD", "wraps": ["ghapi", "repo", "actions"] },
+    { "kind": "region", "label": "阿里云 ECS 47.97.10.152", "wraps": ["ecs"] },
+    { "kind": "security-group", "label": "细粒度 PAT 存在浏览器本地 · 仅 contents:write", "wraps": ["admin"] }
+  ],
+  "connections": [
+    { "id": "users-pages", "from": "users", "to": "pages", "label": "HTTPS 站点", "variant": "emphasis" },
+    { "id": "users-ecs", "from": "users", "to": "ecs", "label": "mibear.top" },
+    { "id": "pages-statics", "from": "pages", "to": "statics", "label": "返回 JSON 与封面" },
+    { "id": "ecs-statics", "from": "ecs", "to": "statics", "label": "同一份产物" },
+    { "id": "shell-statics", "from": "shell", "to": "statics", "label": "每日拉 notify.json", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "admin-ghapi", "from": "admin", "to": "ghapi", "label": "PUT /contents", "variant": "security" },
+    { "id": "ghapi-repo", "from": "ghapi", "to": "repo", "label": "commit → main" },
+    { "id": "repo-actions", "from": "repo", "to": "actions", "label": "push 触发两条 workflow" },
+    { "id": "actions-pages", "from": "actions", "to": "pages", "label": "deploy-pages", "fromSide": "top", "toSide": "top" },
+    { "id": "actions-ecs", "from": "actions", "to": "ecs", "label": "rsync --delete → :22", "fromSide": "left", "toSide": "bottom", "via": [[1100, 732], [1100, 660], [410, 660], [410, 324]], "labelSegment": 2 }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "内容写入与发布", "items": ["Admin 是纯前端页，PAT 只存在浏览器本地", "直写 Contents API 的 public/data/*.json", "一次 push 触发两条 workflow，各自独立构建"] },
+    { "dot": "emerald", "title": "双域名交付", "items": ["pan.devmini.space → GitHub Pages", "mibear.top → ECS nginx，rsync --delete + HTTP 200 健康检查", "ECS 到 github.com 链路不稳，改由 runner 反向连入 22"] },
+    { "dot": "rose", "title": "数据与 App 契约", "items": ["resources.json 是唯一数据源；home / commits / notify 由 prebuild 生成", "壳每日拉 /data/notify.json，有更新才弹一条本地摘要通知（无推送服务）", "APK 由 racknerd /var/www/dl/ 镜像分发"] }
+  ]
+}
