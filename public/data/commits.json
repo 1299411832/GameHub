@@ -1,5 +1,11 @@
 [
   {
+    "hash": "c62d3bd",
+    "date": "2026-09-16T20:53:58+08:00",
+    "message": "fix(resource): 详情页 title 资源名与后缀之间加空格",
+    "url": "https://github.com/xi7ang/GameHub/commit/c62d3bdaf5c91defc403bb4191123103b1ef7af4"
+  },
+  {
     "hash": "8214ada",
     "date": "2026-09-16T20:43:53+08:00",
     "message": "feat(resource): 详情页 <title> 用资源名前 10 字做前缀",
@@ -172,11 +178,5 @@
     "date": "2026-09-14T21:12:07+08:00",
     "message": "feat(notify): 新增 notify.json 生成脚本，作为 App 每日摘要通知的数据源",
     "url": "https://github.com/xi7ang/GameHub/commit/4e34cfc76f283cd6c1eb8750e076193f6c4df4c1"
-  },
-  {
-    "hash": "c61b3c8",
-    "date": "2026-09-14T15:51:41+08:00",
-    "message": "fix(app): 「安卓APP」入口只认壳自报标记 GameHubApp，不再误伤 QQ/微信内置浏览器",
-    "url": "https://github.com/xi7ang/GameHub/commit/c61b3c84a5b83048815770e41b94493b58b5e4a3"
   }
 ]

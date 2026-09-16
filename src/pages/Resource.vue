@@ -131,7 +131,8 @@ let titleApplied = false
 function applyDocTitle() {
   const item = r.value
   if (!item?.title || titleApplied) return
-  const prefix = String(item.title).slice(0, TITLE_NAME_LEN)
+  // 第 10 个字符可能正好是空格（如「战D6 战D风云6 赠单板补丁」），不 trim 会拼出双空格
+  const prefix = String(item.title).slice(0, TITLE_NAME_LEN).trim()
   document.title = `${prefix} ${document.title}`
   titleApplied = true
 }
