@@ -38,16 +38,39 @@ const inject =
   `window.__BRAND_ACCENT__=${JSON.stringify(accent)};` +
   `window.__BUILD_ID__=${JSON.stringify(version)}</script>`
 
+// 5) 百度统计：装在所有 dist/*.html 的 <head> 开头，等价于「页头模板一处安装、全站皆有」。
+// 同步异步加载，PC/移动通用。改统计站点 ID 只改这里，页面上别另贴一份（会双报）。
+const analyticsMarker = 'hm.baidu.com/hm.js'
+const analytics = `<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f6fb0535dda4b5acb96ed0b882d149d1";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>`
+
 let n = 0
 for (const f of readdirSync(DIST).filter((f) => f.endsWith('.html'))) {
   const p = resolve(DIST, f)
   let html = readFileSync(p, 'utf8')
-  if (html.includes(marker)) continue // 幂等：重复 postbuild 不叠加
-  html = html.split(DEFAULT_BRAND).join(name)
-  html = html.replace(/href="\/data\/home\.json"/, `href="/data/home.json?v=${version}"`)
-  html = html.replace(/<head>/, `<head>\n  ${inject}`)
-  writeFileSync(p, html)
-  n++
+  let changed = false
+  if (!html.includes(marker)) {
+    // 幂等：重复 postbuild 不叠加
+    html = html.split(DEFAULT_BRAND).join(name)
+    html = html.replace(/href="\/data\/home\.json"/, `href="/data/home.json?v=${version}"`)
+    html = html.replace(/<head>/, `<head>\n  ${inject}`)
+    changed = true
+  }
+  if (!html.includes(analyticsMarker)) {
+    html = html.replace(/<head>/, `<head>\n${analytics}`)
+    changed = true
+  }
+  if (changed) {
+    writeFileSync(p, html)
+    n++
+  }
 }
 
 writeFileSync(

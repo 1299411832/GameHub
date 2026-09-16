@@ -1,5 +1,47 @@
 [
   {
+    "hash": "095595b",
+    "date": "2026-09-16T14:52:51+08:00",
+    "message": "sync: 新增资源《第九行星/Planet Nine Build.25202325》",
+    "url": "https://github.com/xi7ang/GameHub/commit/095595ba3d517561ae83618f8a5ecf34ce9636ee"
+  },
+  {
+    "hash": "28e9714",
+    "date": "2026-09-16T14:51:31+08:00",
+    "message": "sync: 新增资源《NBA 2K27 Build.25221291》",
+    "url": "https://github.com/xi7ang/GameHub/commit/28e9714105357064f172ef05fd36e14b7e169ae3"
+  },
+  {
+    "hash": "e49542b",
+    "date": "2026-09-16T14:50:26+08:00",
+    "message": "sync: 新增资源《我的梦想卧室 Build.25096547 全DLC（My Dream Setu》",
+    "url": "https://github.com/xi7ang/GameHub/commit/e49542b353a83ac8e784a4414272c3048d9aed0c"
+  },
+  {
+    "hash": "dda4a56",
+    "date": "2026-09-16T14:49:10+08:00",
+    "message": "sync: 新增资源《慢吞吞的恢复 Build.25211215（Plodding Recovery）》",
+    "url": "https://github.com/xi7ang/GameHub/commit/dda4a56340e39d4982612ca55647870bfb6a9384"
+  },
+  {
+    "hash": "1cc0390",
+    "date": "2026-09-16T14:47:51+08:00",
+    "message": "sync: 新增资源《造化仙缘 v0.13.35 （Destiny of Immortal）》",
+    "url": "https://github.com/xi7ang/GameHub/commit/1cc03901db7fcc94c7fe89b70ed6ac62987507c9"
+  },
+  {
+    "hash": "d71f29e",
+    "date": "2026-09-15T20:31:37+08:00",
+    "message": "chore: 每日公告：发布【2026-09-15】游戏资源更新通知（5条新资源）",
+    "url": "https://github.com/xi7ang/GameHub/commit/d71f29eaf0df97427854eae5736bb411504b740b"
+  },
+  {
+    "hash": "56cfc10",
+    "date": "2026-09-15T20:26:52+08:00",
+    "message": "style(home): 手气不错按钮文字字号 18px -> 16px",
+    "url": "https://github.com/xi7ang/GameHub/commit/56cfc10fffe65525f0d0fa4ddb82221577f88f21"
+  },
+  {
     "hash": "b1a1111",
     "date": "2026-09-15T20:20:46+08:00",
     "message": "feat(home): 手气不错图标改为真 3D 骰子，绕竖轴水平自转",
@@ -136,47 +178,5 @@
     "date": "2026-09-14T11:38:09+08:00",
     "message": "sync: 新增资源《电子仓库模拟器/Electronics Depot Simulator》",
     "url": "https://github.com/xi7ang/GameHub/commit/5dc6e6545751cd3e4f26f1a82a489bc27f6931ae"
-  },
-  {
-    "hash": "7bf6898",
-    "date": "2026-09-14T11:37:47+08:00",
-    "message": "sync: 新增资源《半场经理/HALFTIME Manager》",
-    "url": "https://github.com/xi7ang/GameHub/commit/7bf68981de655aa32f808e56b7e24c4e452e0fa8"
-  },
-  {
-    "hash": "4a00821",
-    "date": "2026-09-14T09:48:24+08:00",
-    "message": "feat(cache): 构建号 + version.json 轮询，部署后免强刷自动切新版本；数据文件统一按构建号 bust",
-    "url": "https://github.com/xi7ang/GameHub/commit/4a008217cca799492dc309e4defcad30c69dae80"
-  },
-  {
-    "hash": "0e57350",
-    "date": "2026-09-14T09:40:55+08:00",
-    "message": "perf(brand): 品牌名构建期注入 HTML，消除首帧「GameHub → 游戏源神」闪烁",
-    "url": "https://github.com/xi7ang/GameHub/commit/0e57350fd0465713ae4b0787d5e51b695a50bd65"
-  },
-  {
-    "hash": "ed702f5",
-    "date": "2026-09-14T09:28:31+08:00",
-    "message": "style(search): 下拉结果条目去掉网盘平台标签，仅保留分类",
-    "url": "https://github.com/xi7ang/GameHub/commit/ed702f504f065e482e1f17ee344934228b72e6d0"
-  },
-  {
-    "hash": "8a7ab01",
-    "date": "2026-09-14T09:20:16+08:00",
-    "message": "fix(search): 首页搜索下拉无结果 — resources 为空时按需加载全量数据",
-    "url": "https://github.com/xi7ang/GameHub/commit/8a7ab01a5a9bceb4865b24fed7688b102e6f3abd"
-  },
-  {
-    "hash": "5f1212b",
-    "date": "2026-09-13T22:02:54+08:00",
-    "message": "sync: 新增资源《月光光心慌慌恐怖万圣夜v1.0.1.69707附联机补丁 Halloween: 》",
-    "url": "https://github.com/xi7ang/GameHub/commit/5f1212bc59ff75c53e98528bb70914523af39efd"
-  },
-  {
-    "hash": "5f9a969",
-    "date": "2026-09-13T21:20:34+08:00",
-    "message": "feat(app): 下载按钮改指阿里云 ECS 的 APK，二维码改指 https://mibear.top/app.html",
-    "url": "https://github.com/xi7ang/GameHub/commit/5f9a9690412aa1d9e12ae8c2187dab27e700afaf"
   }
 ]
