@@ -22954,5 +22954,25 @@
     "addedAt": "2026-09-16T14:47:50+08:00",
     "updatedAt": "2026-09-16T14:47:50+08:00",
     "month": "202609"
+  },
+  {
+    "id": "pc-202609-0062",
+    "title": "慢吞吞的恢复 Build.25211215（Plodding Recovery）",
+    "enTitle": "",
+    "category": "pc",
+    "tags": [],
+    "platform": "quark",
+    "url": "https://pan.quark.cn/s/76cfc7734ffe?pwd=YDs4",
+    "pwd": "YDs4",
+    "size": "",
+    "sizeBytes": null,
+    "cover": "",
+    "steamAppID": null,
+    "desc": "在Build.25211215版本中，游戏体验得到显著优化，修复了多个关键问题，提升了系统稳定性，让玩家在探索与挑战中享受更流畅的旅程。",
+    "status": "active",
+    "featured": false,
+    "addedAt": "2026-09-16T14:49:10+08:00",
+    "updatedAt": "2026-09-16T14:49:10+08:00",
+    "month": "202609"
   }
 ]
