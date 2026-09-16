@@ -50,6 +50,20 @@ jobs:
       - name: Build
         run: npm run build
 
+      # sitemap.xml / robots.txt 由 postbuild 的 gen-sitemap.js 生成，域名取自 site.json 的 url 字段；
+      # 该字段缺省回退到 https://pan.devmini.space，所以 ECS 的产物必须再改一次，否则 mibear.top
+      # 会把站点地图指向 Pages 域名，搜索引擎照着爬的是另一个站。只改本工作流的 dist/，Pages 那套不动。
+      - name: Rewrite domain in generated sitemap/robots
+        run: |
+          sed -i 's|pan\.devmini\.space|mibear.top|g' dist/sitemap.xml dist/robots.txt
+          if grep -q 'pan\.devmini\.space' dist/sitemap.xml dist/robots.txt; then
+            echo '::error::sitemap.xml/robots.txt 仍残留 pan.devmini.space，替换未生效'
+            exit 1
+          fi
+          grep -q 'Sitemap: https://mibear.top/sitemap.xml' dist/robots.txt
+          echo "robots.txt -> $(grep '^Sitemap:' dist/robots.txt)"
+          echo "sitemap.xml -> $(grep -c '<loc>https://mibear.top' dist/sitemap.xml) 条 mibear.top URL"
+
       - name: Deploy to Aliyun ECS via rsync
         uses: burnett01/rsync-deployments@v9
         with:
@@ -66,3 +80,9 @@ jobs:
           code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 30 https://mibear.top/)
           echo "https://mibear.top/ -> $code"
           [ "$code" = "200" ] || exit 1
+          # SEO 文件也必须指向 mibear.top：只验首页会让「域名替换没生效」静默通过
+          curl -sS --max-time 30 https://mibear.top/robots.txt | grep -q 'Sitemap: https://mibear.top/sitemap.xml' || {
+            echo '::error::线上 robots.txt 的 Sitemap 未指向 mibear.top'; exit 1; }
+          left=$(curl -sS --max-time 30 https://mibear.top/sitemap.xml | grep -c 'pan\.devmini\.space' || true)
+          echo "线上 sitemap.xml 残留 pan.devmini.space: $left"
+          [ "$left" = "0" ] || exit 1
