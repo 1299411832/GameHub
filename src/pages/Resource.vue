@@ -123,6 +123,18 @@ const BASE = import.meta.env.BASE_URL
 
 const { state, load, catMeta } = useData()
 const params = new URLSearchParams(location.search)
+
+// <title>：资源名前 10 字 + 页面静态标题（后半句的品牌名由 useData.applyBrandToDoc 统一换成运行中品牌）。
+// 详情页由 ?id= 定位，构建期不知道是哪条资源，只能加载后运行时改。
+const TITLE_NAME_LEN = 10
+let titleApplied = false
+function applyDocTitle() {
+  const item = r.value
+  if (!item?.title || titleApplied) return
+  const prefix = String(item.title).slice(0, TITLE_NAME_LEN)
+  document.title = `${prefix}${document.title}`
+  titleApplied = true
+}
 const rawId = params.get('id')
 const legacyCat = params.get('c')
 const showQr = ref(false)
@@ -154,6 +166,7 @@ async function resolveLegacy() {
 
 onMounted(async () => {
   await load()
+  applyDocTitle() // 必须在 load() 之后：那时 applyBrandToDoc 已把静态标题里的品牌名换好
   await resolveLegacy()
 })
 

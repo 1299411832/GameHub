@@ -1,5 +1,29 @@
 [
   {
+    "hash": "2c05529",
+    "date": "2026-09-16T20:32:22+08:00",
+    "message": "chore: 每日公告：发布【2026-09-16】游戏资源更新通知（5条新资源）",
+    "url": "https://github.com/xi7ang/GameHub/commit/2c055294b3518baf8afd877d0b672c93b6cdee26"
+  },
+  {
+    "hash": "51f39ad",
+    "date": "2026-09-16T20:14:04+08:00",
+    "message": "ci(ecs): sitemap.xml/robots.txt 域名改写为 mibear.top 并加校验",
+    "url": "https://github.com/xi7ang/GameHub/commit/51f39ad584db940bcfff5bfef2a72eb3f8ae3c60"
+  },
+  {
+    "hash": "a9862ea",
+    "date": "2026-09-16T20:01:44+08:00",
+    "message": "docs: README 增加系统架构图（Archify 生成，PNG + 交互版 HTML + 源 JSON）",
+    "url": "https://github.com/xi7ang/GameHub/commit/a9862ea4e05720c1288a6b209a0effd327cdd3ad"
+  },
+  {
+    "hash": "9b6b952",
+    "date": "2026-09-16T19:01:05+08:00",
+    "message": "feat: 全站注入百度统计（构建期 postbuild，覆盖全部 html 入口）",
+    "url": "https://github.com/xi7ang/GameHub/commit/9b6b952e332ad27ade7e167d55360534c8dfb391"
+  },
+  {
     "hash": "095595b",
     "date": "2026-09-16T14:52:51+08:00",
     "message": "sync: 新增资源《第九行星/Planet Nine Build.25202325》",
@@ -154,29 +178,5 @@
     "date": "2026-09-14T11:41:49+08:00",
     "message": "sync: 新增资源《穿书志：倪帝蔷决定去死 ****/Novel**** Forger: Suici》",
     "url": "https://github.com/xi7ang/GameHub/commit/9615c1d275987f5c833720e6694048db2de82a32"
-  },
-  {
-    "hash": "26b7ac3",
-    "date": "2026-09-14T11:41:32+08:00",
-    "message": "sync: 新增资源《纸嫁衣5：来生戏/Paper Bride 5 Two Lifetimes v1.》",
-    "url": "https://github.com/xi7ang/GameHub/commit/26b7ac32767d2bd13a9b45ee75ffc16dae5c9968"
-  },
-  {
-    "hash": "86f0851",
-    "date": "2026-09-14T11:40:29+08:00",
-    "message": "sync: 新增资源《纸嫁衣1/Paper Bride 1》",
-    "url": "https://github.com/xi7ang/GameHub/commit/86f08518240f4679f9b5cee63059f37671bc19ee"
-  },
-  {
-    "hash": "a5f8590",
-    "date": "2026-09-14T11:38:21+08:00",
-    "message": "feat(app): 安卓 App WebView 内隐藏「安卓APP」下载入口（公告弹窗 + 顶部导航）",
-    "url": "https://github.com/xi7ang/GameHub/commit/a5f8590a6a7996548529563f4fe7767cf606f56d"
-  },
-  {
-    "hash": "5dc6e65",
-    "date": "2026-09-14T11:38:09+08:00",
-    "message": "sync: 新增资源《电子仓库模拟器/Electronics Depot Simulator》",
-    "url": "https://github.com/xi7ang/GameHub/commit/5dc6e6545751cd3e4f26f1a82a489bc27f6931ae"
   }
 ]
