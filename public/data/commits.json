@@ -1,5 +1,11 @@
 [
   {
+    "hash": "ae6645a",
+    "date": "2026-09-16T21:47:20+08:00",
+    "message": "feat(notify): 通知点击深链改为 /category.html（原 /changelog.html）",
+    "url": "https://github.com/xi7ang/GameHub/commit/ae6645aa5c31d2cfbc21a62ad3e21837ef8ae201"
+  },
+  {
     "hash": "8151f37",
     "date": "2026-09-16T20:58:11+08:00",
     "message": "fix(resource): title 前缀 trim，避免第 10 字符是空格时拼出双空格",
@@ -172,11 +178,5 @@
     "date": "2026-09-15T07:16:40+08:00",
     "message": "sync: 新增资源《机器人世界冒险v1.36.2免费购》",
     "url": "https://github.com/xi7ang/GameHub/commit/99af8d14e0e4352c12c7e07eb69bfc2ec2865a35"
-  },
-  {
-    "hash": "f9412e6",
-    "date": "2026-09-14T21:15:41+08:00",
-    "message": "chore: 每日公告：发布【2026-09-14】游戏资源更新通知（5 条新资源）",
-    "url": "https://github.com/xi7ang/GameHub/commit/f9412e6880138ce0ad5476f837a22dc90ee222db"
   }
 ]

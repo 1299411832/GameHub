@@ -51,6 +51,11 @@ var _hmt = _hmt || [];
 })();
 </script>`
 
+// 6) 百度站点验证 meta：同样装在所有 dist/*.html 的 <head>，一处安装全站生效。
+// 换验证码只改这里；页面上另贴一份不会更"有效"，只会让两处失同步。
+const verifyMarker = 'baidu-site-verification'
+const verifyMeta = '<meta name="baidu-site-verification" content="codeva-zXlmKTo2DN" />'
+
 let n = 0
 for (const f of readdirSync(DIST).filter((f) => f.endsWith('.html'))) {
   const p = resolve(DIST, f)
@@ -65,6 +70,10 @@ for (const f of readdirSync(DIST).filter((f) => f.endsWith('.html'))) {
   }
   if (!html.includes(analyticsMarker)) {
     html = html.replace(/<head>/, `<head>\n${analytics}`)
+    changed = true
+  }
+  if (!html.includes(verifyMarker)) {
+    html = html.replace(/<head>/, `<head>\n  ${verifyMeta}`)
     changed = true
   }
   if (changed) {
