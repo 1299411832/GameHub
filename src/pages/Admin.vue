@@ -723,7 +723,7 @@ import { useData } from '../composables/useData.js'
 
 const { state, load, parseLines, catLabel, catMeta } = useData()
 
-const REPO = 'xi7ang/GameHub'
+const REPO = '1299411832/GameHub'
 const BASE = 'https://api.github.com'
 const TOKEN_KEY = 'gamehub-pat'
 
