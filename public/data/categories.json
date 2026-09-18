@@ -86,5 +86,16 @@
     ],
     "order": 8,
     "show": true
+  },
+  {
+    "key": "xq",
+    "name": "在线星球",
+    "emoji": "🎮",
+    "gradient": [
+      "#c99a5b",
+      "#a87b3f"
+    ],
+    "order": 9,
+    "show": true
   }
 ]
