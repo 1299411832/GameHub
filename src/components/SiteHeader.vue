@@ -18,7 +18,7 @@
 
       <nav class="site-nav">
         <a href="/" class="nav-link">首页</a>
-        <a href="/category.html" class="nav-link">资源库</a>
+        <a href="/category.html" class="nav-link">星球库</a>
         <!-- 更新日志入口已按要求隐藏（PC 端顶部导航） -->
         <!-- <a href="/changelog.html" class="nav-link">更新日志</a> -->
         <a v-if="site?.qqGroup" :href="site.qqGroup" target="_blank" rel="noreferrer" class="nav-cta nav-cta--qq"><img class="cta-icon" src="/qq-penguin.png" alt="" width="14" height="16" /><span class="cta-text">QQ群</span></a>
