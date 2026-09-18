@@ -4,8 +4,8 @@
     <BgWall />
     <section class="page-hero">
       <div class="container">
-        <h1 class="page-hero__title">📡 更新日志</h1>
-        <p class="text-low">资源与功能更新记录，由 git commit 自动生成</p>
+        <h1 class="page-hero__title">📡 迷体日志</h1>
+        <p class="text-low">迷体资源与功能更新记录，由 git commit 自动生成</p>
       </div>
     </section>
 
