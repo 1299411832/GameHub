@@ -23230,5 +23230,29 @@
     "addedAt": "2026-09-18T09:18:42+08:00",
     "updatedAt": "2026-09-18T09:18:42+08:00",
     "month": "202609"
+  },
+  {
+    "id": "xq-202609-0001",
+    "title": "迷体修仙录",
+    "enTitle": "在线星球",
+    "category": "xq",
+    "tags": [
+      "文字",
+      "打卡",
+      "迷体星球"
+    ],
+    "platform": "quark",
+    "url": "https://a.miti.cc.cd",
+    "pwd": null,
+    "size": "",
+    "sizeBytes": null,
+    "cover": "https://hefollo.cn/本人使用壁纸/10.png",
+    "steamAppID": null,
+    "desc": "迷体星球—修仙打卡处！已！上！线！，在线即可，不用下载",
+    "status": "active",
+    "featured": true,
+    "addedAt": "2026-09-18T09:31:17+08:00",
+    "updatedAt": "2026-09-18T09:31:17+08:00",
+    "month": "202609"
   }
 ]
