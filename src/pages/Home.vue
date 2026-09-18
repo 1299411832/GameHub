@@ -6,7 +6,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero__inner">
-        <h1 class="hero__title">叹镜·世界<br /><em>优质游戏资源</em></h1>
+        <h1 class="hero__title">MT·BOX<br /><em>优质游戏资源</em></h1>
         <p class="hero__subtitle">{{ site?.slogan }} · 单机 / 手游 / Switch / MOD 一站式聚合</p>
         <div class="hero__search">
           <SearchBox :lucky-resources="luckyCoverPool" />
