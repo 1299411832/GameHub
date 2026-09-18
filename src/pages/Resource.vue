@@ -73,7 +73,7 @@
 
         <!-- 同分类推荐 -->
         <section v-if="related.length" class="section">
-          <h2 class="section-title">🎯 同类推荐</h2>
+          <h2 class="section-title">🎯 迷体推荐</h2>
           <div class="rc-grid">
             <ResourceCard v-for="rel in related" :key="rel.id" :r="rel" />
           </div>
