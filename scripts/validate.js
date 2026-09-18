@@ -74,14 +74,15 @@ res.forEach((r, i) => {
   check(typeof r.featured === 'boolean', `${loc} featured 必须是布尔`)
   check(Array.isArray(r.tags), `${loc} tags 必须是数组`)
   check(!r.tags || r.tags.length <= TAG_MAX, `${loc} tags 超过 ${TAG_MAX} 个`)
-  // 封面路径校验：空串合法（无封面）；非空必须为 /covers/xxx 且文件真实存在于仓库
+  // 封面路径校验：空串合法（无封面）；非空必须为 /covers/xxx 或 http(s) 外链
   if (r.cover) {
-    if (/^https?:///i.test(r.cover)) { /* 外链cover放行 */ } else {
-    check(COVER_RE.test(r.cover), `${loc} cover 路径非法(必须形如 /covers/xxx.webp 或 http(s) 外链): ${r.cover}`)
-    const cfile = path.join(COVERS_DIR, path.basename(r.cover))
-    check(fs.existsSync(cfile), `${loc} cover 文件不存在于 public/covers: ${r.cover}`)
-  }
-    check(!/gamehub/i.test(r.cover), `${loc} cover 不应包含 /GameHub 子路径前缀: ${r.cover}`)
+    // 外链（http/https 开头）直接放行
+    if (!/^https?:\/\//i.test(r.cover)) {
+      check(COVER_RE.test(r.cover), `${loc} cover 路径非法(必须形如 /covers/xxx.webp 或 http(s) 外链): ${r.cover}`)
+      const cfile = path.join(COVERS_DIR, path.basename(r.cover))
+      check(fs.existsSync(cfile), `${loc} cover 文件不存在于 public/covers: ${r.cover}`)
+      check(!/gamehub/i.test(r.cover), `${loc} cover 不应包含 /GameHub 子路径前缀: ${r.cover}`)
+    }
   }
   // steamAppID：可选，存在时必须为正整数；且当 cover 形如 /covers/<数字>.webp 时必须一致
   if (r.steamAppID != null) {
