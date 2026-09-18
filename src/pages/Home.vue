@@ -6,7 +6,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero__inner">
-        <h1 class="hero__title">发现全网<br /><em>优质游戏资源</em></h1>
+        <h1 class="hero__title">叹镜·世界<br /><em>优质游戏资源</em></h1>
         <p class="hero__subtitle">{{ site?.slogan }} · 单机 / 手游 / Switch / MOD 一站式聚合</p>
         <div class="hero__search">
           <SearchBox :lucky-resources="luckyCoverPool" />
@@ -25,7 +25,7 @@
 
     <!-- 游戏推荐：每次打开随机从有封面的资源中选 8 个 -->
     <section v-if="featured.length" class="container section">
-      <h2 class="section-title">🎲 游戏推荐</h2>
+      <h2 class="section-title">🎲 迷体推荐</h2>
       <div class="rc-grid">
         <ResourceCard v-for="r in featured" :key="r.id" :r="r" />
       </div>
@@ -41,7 +41,7 @@
 
     <!-- 分类宫格 -->
     <section class="container section">
-      <h2 class="section-title">🗂️ 资源分类</h2>
+      <h2 class="section-title">🗂️ MT分类</h2>
       <div class="cat-grid">
         <a
           v-for="(c, i) in state.categories"
@@ -83,11 +83,11 @@
     <section class="container stats fade-up">
       <div class="stat">
         <div class="stat__num">{{ state.home?.total || 0 }}</div>
-        <div class="stat__label text-low">资源总数</div>
+        <div class="stat__label text-low">迷体总数</div>
       </div>
       <div class="stat">
         <div class="stat__num">{{ state.categories.length }}</div>
-        <div class="stat__label text-low">游戏分类</div>
+        <div class="stat__label text-low">MT分类</div>
       </div>
       <div class="stat">
         <div class="stat__num">{{ lastMonthCount }}</div>
@@ -95,7 +95,7 @@
       </div>
       <div class="stat">
         <div class="stat__num">100%</div>
-        <div class="stat__label text-low">免费分享</div>
+        <div class="stat__label text-low">分享颗粒度</div>
       </div>
     </section>
 
