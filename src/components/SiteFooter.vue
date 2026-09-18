@@ -11,10 +11,10 @@
         </div>
         <div class="site-footer__links">
           <a href="/">首页</a>
-          <a href="/category.html">资源库</a>
+          <a href="/category.html">星球库</a>
           <a href="/changelog.html">更新日志</a>
           <a href="/disclaimer.html">免责声明</a>
-          <a v-if="site?.email" :href="'mailto:' + site.email">联系站长</a>
+          <a v-if="site?.email" :href="'mailto:' + site.email">迷体星球</a>
         </div>
       </div>
       <div class="site-footer__bottom text-low">
